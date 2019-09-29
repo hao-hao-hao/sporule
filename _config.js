@@ -7,8 +7,8 @@ const Config = {
     disqusShortname: "sporule",
     postPerPage: 10,
     googleAnaltics: "UA-114032457-1",
+    alwaysRefreshPost: false,
     gh_custom_domain: true
-
 }
 
 module.exports = Config;
