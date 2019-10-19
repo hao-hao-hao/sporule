@@ -60,3 +60,15 @@ root soft nofile 10000
 
 Credit to [mkasberg](https://superuser.com/users/164984/mkasberg)
 
+### ​Set Up SSH Between Nodes
+
+Copy and paste the private key to master:
+
+>.ssh/id_rsa
+
+
+### Disable Firewall
+
+> systemctl disable firewalld
+
+> service firewalld stop

@@ -21,12 +21,14 @@ export default class PostResources {
     getAll(paths = this.defaultPaths, forceUpdate = false) {
         const states = store.getState();
         const newHash = Hash(paths);
+        console.log(paths);
         if (newHash == states.posts.hash && !forceUpdate) {
             //check hash to see if we should update or not
             return new Promise((resolve, reject) => {
                 resolve(null);
             })
         }
+        console.log("refreshing data");
         let mdHandler = new MarkdownHandler();
         return mdHandler.loadMds(paths).then(posts => {
             posts.hash = newHash;
