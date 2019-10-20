@@ -72,3 +72,47 @@ Copy and paste the private key to master:
 > systemctl disable firewalld
 
 > service firewalld stop
+
+### ​Disable SELinux and PackageKit and check the umask Value
+
+set SELINUX=disabled in /etc/selinux/config
+
+Permanently changing the umask for all interactive users:
+
+sudo vim  /etc/profile
+
+change umask to 022
+
+### Install MySQL
+
+```bash
+
+yum install mysql-connector-java*
+
+yum localinstall \
+
+https://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm
+
+yum install mysql-community-server
+
+systemctl start mysqld.service
+
+Obtain the randomly generated MySQL root password.
+
+grep 'A temporary password is generated for root@localhost' \
+/var/log/mysqld.log |tail -1
+Reset the MySQL root password. Enter the following command. You are prompted for the password you obtained in the previous step. MySQL then asks you to change the password.
+
+/usr/bin/mysql_secure_installation
+
+!Q2w3e4r
+
+```
+
+### Install Open JDK
+
+> yum install java-1.7.0-openjdk
+
+
+### Ambari setup
+
