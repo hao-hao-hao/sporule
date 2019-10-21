@@ -49,6 +49,10 @@ I have picked the [icanhazdadjoke](https://icanhazdadjoke.com/api) api which wil
 Click [this link](https://developer.amazon.com/alexa/console/ask) for registration, fill in required information.
 You can use your Amazon account to log in.
 
+### Register to the Amazon Free Echo Promotion
+
+Go to [here](https://developer.amazon.com/en-GB/alexa/alexa-skills-kit/alexa-developer-skill-promotion) and fill the promotion form.
+
 ### Create your first skill
 
 After login to your development account ,go to [this link](https://developer.amazon.com/alexa/console/ask).
