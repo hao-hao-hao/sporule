@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
-    "disqus-react": "^1.0.6",
+    "disqus-react": "^1.0.7",
     "markdown-handler": "^0.3.2",
     "markdown-it": "^9.1.0",
     "markdown-it-for-inline": "^0.1.1",
@@ -28,6 +28,7 @@
     "query-string": "^6.8.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1",
     "react-redux": "^7.1.0",
     "react-render-html": "^0.6.0",
     "react-router": "^5.0.1",
