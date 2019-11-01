@@ -1,5 +1,6 @@
 const Config = {
     site: "Sporule",
+    subTitle:"micro blog",
     url: "https://www.sporule.com",
     description: "Sporule is a micro blog site",
     keywords: "micro blog",

@@ -9,6 +9,10 @@ coverimage: ""
 
 ## Preparation
 
+
+### Open POrt 8080
+
+
 ### ​Maximum Open Files Requirements
 
 > The recommended maximum number of open [**file descriptors**](https://en.wikipedia.org/wiki/File_descriptor) is 10000, or more. To check the current value set for the maximum number of open file descriptors, execute the following shell commands on each host:
@@ -62,16 +66,20 @@ Credit to [mkasberg](https://superuser.com/users/164984/mkasberg)
 
 ### ​Set Up SSH Between Nodes
 
-Copy and paste the private key to master:
+Use Root Accounts 
 
->.ssh/id_rsa
+> sudo su
 
+in master:
+mkdir /root/.ssh;  chmod 700 /root/.ssh;
 
-### Disable Firewall
+also add new file id_rsa, and paste the private key to the /root/.ssh
 
-> systemctl disable firewalld
+chmod 600 /root/.ssh/id_rsa
 
-> service firewalld stop
+in slaves:
+cp -R /home/sporule/.ssh /root/;  chmod 700 /root/.ssh;  chmod 600 /root/.ssh/authorized_keys
+
 
 ### ​Disable SELinux and PackageKit and check the umask Value
 
@@ -79,15 +87,73 @@ set SELINUX=disabled in /etc/selinux/config
 
 Permanently changing the umask for all interactive users:
 
-sudo vim  /etc/profile
-
 change umask to 022
+
+
+### Install Open JDK 1.8
+
+> yum install java-1.8.0-openjdk-devel
+
+### Enable NTP
+yum install -y ntp
+systemctl enable ntpd
+
+### hostname setup on every node
+
+get host name
+
+
+hostname -f
+master.3xnxh3rxoieefdkcqfgjoegn3e.zx.internal.cloudapp.net
+master2.3xnxh3rxoieefdkcqfgjoegn3e.zx.internal.cloudapp.net
+slave1.3xnxh3rxoieefdkcqfgjoegn3e.zx.internal.cloudapp.net
+
+-----------------
+
+datahub-master.uksouth.cloudapp.azure.com
+datahub-slave1.uksouth.cloudapp.azure.com
+
+
+
+hostname slave1.3xnxh3rxoieefdkcqfgjoegn3e.zx.internal.cloudapp.net
+
+vim /etc/hosts
+1.2.3.4 <fully.qualified.domain.name>
+
+vim /etc/sysconfig/network
+
+NETWORKING=yes
+HOSTNAME=<fully.qualified.domain.name>
+
+### Ambari setup in master
+
+prepare ambari repo
+
+https://docs.cloudera.com/HDPDocuments/Ambari-2.7.3.0/bk_ambari-installation/content/download_the_ambari_repo_lnx7.html
+
+wget -nv http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.7.3.0/ambari.repo -O /etc/yum.repos.d/ambari.repo
+
+> yum install ambari-server
+
+
+manually set up jdk
+
+> ambari-server setup -j /usr/lib/jvm/java-1.8.0-openjdk
+
+https://docs.cloudera.com/HDPDocuments/Ambari-2.7.3.0/bk_ambari-installation/content/set_up_the_ambari_server.html
+
+
 
 ### Install MySQL
 
+https://docs.cloudera.com/HDPDocuments/Ambari-2.7.3.0/bk_ambari-installation/content/install-mysql.html
+
+
 ```bash
 
-yum install mysql-connector-java*
+yum install mysql-connector-java* 
+sudo ambari-server setup --jdbc-db=mysql --jdbc-driver=/usr/share/java/mysql-connector-java.jar
+
 
 yum localinstall \
 
@@ -109,10 +175,54 @@ Reset the MySQL root password. Enter the following command. You are prompted for
 
 ```
 
-### Install Open JDK
+## Config for Ranger and OZZIE
 
-> yum install java-1.7.0-openjdk
+https://docs.cloudera.com/HDPDocuments/Ambari-2.7.3.0/bk_ambari-installation/content/configuring_mysql_for_ranger.html
+
+https://mapr.com/docs/60/Oozie/MySQLDataStoreforOozie.html
 
 
-### Ambari setup
+CREATE USER 'rangerdba'@'localhost' IDENTIFIED BY 'edmung9Z!';
+
+GRANT ALL PRIVILEGES ON *.* TO 'rangerdba'@'localhost';
+
+CREATE USER 'rangerdba'@'%' IDENTIFIED BY 'edmung9Z!';
+
+GRANT ALL PRIVILEGES ON *.* TO 'rangerdba'@'%';
+
+GRANT ALL PRIVILEGES ON *.* TO 'rangerdba'@'localhost' WITH GRANT OPTION;
+
+GRANT ALL PRIVILEGES ON *.* TO 'rangerdba'@'%' WITH GRANT OPTION;
+
+FLUSH PRIVILEGES;
+
+
+### Start Ambari
+
+
+ambari-server start
+
+### enable all ports
+8080, 8440, 8441
+
+
+### Installation
+
+http://sporule-master.uksouth.cloudapp.azure.com:8080/#/installer/step3
+
+Detail Logs
+
+/var/log/ambari-agent/ambari-agent.log
+
+
+### Update Zookeeper Config on all nodes
+
+zookeeper Cannot assign requested address bind failed
+
+/etc/zookeeper/conf/zoo.cfg
+
+server.1 to 0.0.0.0
+
+
+
 
