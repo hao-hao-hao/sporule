@@ -17,6 +17,7 @@ export const removeFuturePosts = (posts) => {
     let tempPosts = { ...posts };
     tempPosts.items = tempPosts.items.filter(post => {
         if (post.metas.date && post.metas.date != "null") {
+            console.log("post date",new Date(post.metas.date),new Date());
             return new Date(post.metas.date) <= new Date();
         }
         return false;
@@ -73,9 +74,9 @@ export const getTags = (posts) => {
     return tags;
 }
 
-export const getPostsByPage = (posts, page, excludePinned, searchString, categories, tags) => {
+export const getPostsByPage = (posts, page, excludePinned, searchString, categories, tags, excludedTags) => {
     let tempPosts = { ...posts };
-    tempPosts = postsFilter(tempPosts, excludePinned, searchString, categories, tags);
+    tempPosts = postsFilter(tempPosts, excludePinned, searchString, categories, tags, excludedTags);
     tempPosts = sortPost(tempPosts);
     const postsSize = tempPosts.items.length;
     const itemsPerPage = page > 0 ? Config.postPerPage : 99999999;
@@ -90,7 +91,7 @@ export const getPostsByPage = (posts, page, excludePinned, searchString, categor
     return tempPosts;
 }
 
-export const postsFilter = (posts, excludePinned, searchString, categories, tags) => {
+export const postsFilter = (posts, excludePinned, searchString, categories, tags, excludedTags) => {
     let tempPosts = { ...posts };
     if (searchString) {
         tempPosts.items = tempPosts.items.filter(o => o.title.includes(searchString));
@@ -107,7 +108,13 @@ export const postsFilter = (posts, excludePinned, searchString, categories, tags
     }
     if (tags.length > 0) {
         tempPosts.items = tempPosts.items.filter(o => {
-            return Utility.isIntersect(o.metas.tags, tags);
+            return Utility.isSubset(o.metas.tags, tags);
+        })
+    }
+    
+    if (excludedTags.length>0){
+        tempPosts.items = tempPosts.items.filter(o=>{
+            return !Utility.isIntersect(o.metas.tags, excludedTags);
         })
     }
     return tempPosts;
