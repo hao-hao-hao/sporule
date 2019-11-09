@@ -109,7 +109,7 @@ module.exports = {
       generator: "Sporule",
       author: {
           name: "Sporule",
-          email: "example@example.com",
+          email: "hao@sporule.com",
           link: "https://www.sporule.com"
       },
     }),
