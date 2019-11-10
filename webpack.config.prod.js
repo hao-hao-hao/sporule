@@ -108,9 +108,9 @@ module.exports = {
       updated: new Date(), //updated date
       generator: "Sporule",
       author: {
-          name: "Sporule",
-          email: "hao@sporule.com",
-          link: "https://www.sporule.com"
+        name: "Sporule",
+        email: "hao@sporule.com",
+        link: "https://www.sporule.com"
       },
     }),
     new RobotstxtPlugin({
@@ -152,19 +152,35 @@ module.exports = {
       name: Config.site,
       short_name: Config.site,
       description: Config.description,
+      display: "standalone",
+      start_url: ".",
+      crossorigin: null,
       background_color: '#ffffff',
-      includeDirectory: 'manifest.json',
+      includeDirectory: true,
+      inject: true,
+      ios: true,
       orientation: 'any',
       crossorigin: 'anonymous', //can be null, use-credentials or anonymous
       "theme_color": "#3367D6",
       icons: [
         {
           src: path.resolve('publish_assets/logo.png'),
-          sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
+          sizes: [120, 152, 167, 180, 1024],
+          destination: path.join('icons', 'ios'),
+          ios: true
+        },
+        {
+          src: path.resolve('publish_assets/logo.png'),
+          sizes: [36, 48, 72, 96, 144, 192, 512],
+          destination: path.join('icons', 'android')
+        },
+        {
+          src: path.resolve('publish_assets/logo.png'),
+          sizes: [32,96, 128, 192, 256, 384, 512] // multiple sizes
         }
       ],
       ios: {
-        'apple-mobile-web-app-title': 'Sporule',
+        'apple-mobile-web-app-title': Config.site,
         'apple-mobile-web-app-status-bar-style': 'black-translucent'
       }
     })
