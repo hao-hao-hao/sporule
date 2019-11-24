@@ -2,7 +2,7 @@
 title: "Build an Amazon Alexa Skills in 10 Minutes and Get Free Echo"
 author: "Sporule"
 date: "2019-10-20"
-categories: "coding"
+categories: "code"
 tags: "amazon,echo,alexa"
 ---
 

@@ -2,7 +2,7 @@
 title: "EXOPlayer source error on Android 8 and above"
 author: "Sporule"
 date: "2019-07-12"
-categories: "coding"
+categories: "code"
 tags: "android,exoplayer,java"
 coverimage:"https://miro.medium.com/max/3092/1*oxK1gF5zFP9z9_9qFDOKlQ.png"
 ---

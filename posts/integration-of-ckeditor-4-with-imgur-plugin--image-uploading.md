@@ -2,7 +2,7 @@
 title: "Integration of CKEditor 4 with Imgur Plugin (Image Uploading)"
 author: "Sporule"
 date: "2018-10-22"
-categories: "coding"
+categories: "code"
 tags: "sporule,ckeditor,imgur,javascript"
 coverimage: "https://ckeditor.com/assets/images/og/ogimage-ck4-1ea514a336.png"
 ---

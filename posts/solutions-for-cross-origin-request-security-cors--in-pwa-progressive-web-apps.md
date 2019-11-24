@@ -2,7 +2,7 @@
 title: "Solutions for Cross Origin Request Security (CORS) in PWA (Progressive Web Apps)"
 author: "Sporule"
 date: "2019-07-23"
-categories: "coding"
+categories: "code"
 tags: "cors,cors-anywhere,pwa,heroku"
 ---
 

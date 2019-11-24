@@ -2,7 +2,7 @@
 title: "Drop All Tables in the Microsoft SQL Server"
 author: "Sporule"
 date: "2018-11-08"
-categories: "coding"
+categories: "code"
 tags: "sql"
 coverimage: "http://www.wisetrack.com/wp-content/uploads/2018/05/1768.sql_logo.png"
 ---
