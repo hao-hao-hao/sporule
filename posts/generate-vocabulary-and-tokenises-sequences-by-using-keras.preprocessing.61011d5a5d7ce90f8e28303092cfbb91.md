@@ -17,7 +17,7 @@ Start with loading the data
 
 ```python
 import pandas as pd 
-qa_df = pd.read_csv("python_qa.csv",encoding = "ISO-8859-1",sep='\t')
+qa_df = pd.read_csv("python_qa.csv",encode = "ISO-8859-1",sep='\t')
 ```
 
 The data format

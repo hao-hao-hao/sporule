@@ -2,7 +2,7 @@
 title: "Using MgoV2 for querying MongoDB in Golang with some extra helper functions"
 author: "Sporule"
 date: "2018-07-08"
-categories: "coding"
+categories: "code"
 tags: "golang,mongodb,odm,hook"
 coverimage:"https://hackernoon.com/hn-images/1*WpUuwCQZWhVzP3X0Gibaqw.png"
 ---

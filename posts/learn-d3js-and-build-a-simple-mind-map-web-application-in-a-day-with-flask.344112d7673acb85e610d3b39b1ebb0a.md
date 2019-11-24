@@ -2,7 +2,7 @@
 title: "Learn D3.js and Build a simple Mind Map web application in a day with Flask"
 author: "Sporule"
 date: "2018-10-13"
-categories: "coding"
+categories: "code"
 tags: "d3.js,python,flask,javascript"
 coverimage: "https://i0.wp.com/blog.knoldus.com/wp-content/uploads/2017/06/d3logo.png?fit=590%2C313&ssl=1"
 ---

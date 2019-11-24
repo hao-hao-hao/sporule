@@ -2,7 +2,7 @@
 title: "TagCloser - A Python package to help you to close unclosed HTML Tags"
 author: "Sporule"
 date: "2018-12-07"
-categories: "coding"
+categories: "code"
 tags: "python, tagcloser, excerpt"
 coverimage: "https://i.imgur.com/xccQnBJ.png"
 ---

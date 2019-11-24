@@ -2,7 +2,7 @@
 title: "Use Flask-Migrate to update the Structure and Columns of the Current Database"
 author: "Sporule"
 date: "2018-09-28"
-categories: "coding"
+categories: "code"
 tags: "flask-migrate,database,flask-sqlalchemy,flask,python"
 coverimage: "https://i.ytimg.com/vi/BAOfjPuVby0/maxresdefault.jpg"
 ---

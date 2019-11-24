@@ -2,7 +2,7 @@
 title: "Set Up Hortonworks Data Platform In Azure"
 author: "Sporule"
 date: ""
-categories: "coding"
+categories: "code"
 tags: "hadoop"
 coverimage: ""
 ---

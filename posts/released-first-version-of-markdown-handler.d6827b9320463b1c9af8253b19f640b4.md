@@ -2,7 +2,7 @@
 title: "Release of the first version of Markdown-Handler"
 author: "Sporule"
 date: "2019-09-22"
-categories: "coding"
+categories: "code"
 tags: "npm,javascript,es6,markdown"
 coverimage: "https://i.imgur.com/xkhBTzk.png"
 ---

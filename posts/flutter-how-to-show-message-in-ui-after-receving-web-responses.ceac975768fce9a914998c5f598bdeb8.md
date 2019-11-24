@@ -2,7 +2,7 @@
 title: "Flutter - How to Show Message in UI after Receving Web Responses"
 author: "Sporule"
 date: "2019-07-18"
-categories: "coding"
+categories: "code"
 tags: "flutter,android"
 ---
 
