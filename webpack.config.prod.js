@@ -86,11 +86,6 @@ module.exports = {
           from: '_redirects',
           to: '',
         },
-         {
-          context: __dirname + '/src',
-          from: '5a7de198b4a7aab8e449e2f34710c362.txt',
-          to: '',
-        },
         {
           context: __dirname + "/posts",
           from: 'images/**/*',
