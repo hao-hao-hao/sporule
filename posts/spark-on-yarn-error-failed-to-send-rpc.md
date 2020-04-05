@@ -59,27 +59,3 @@ https://stackoverflow.com/questions/43262836/apache-spark-running-spark-shell-on
 The container was killed because the usage of memory exceeds the virtual memory and physical memory threshold. The solution is to change the ratio.
 The ratio is in yarn-site.xml configuration file, the name is yarn.nodemanager.vmem-pmem-ratio. The default value is 2.1 so we just need to change it to higher.
 What is the side affect of increasing this ratio? I didn't spend time to research but I guess the cluster will have resources allocation problems in the future. I will update this post if that is the case.
-
-
-
-hive -hiveconf hive.root.logger=DEBUG,console
-
-
- ERROR utils.MetaStoreUtils: Got exception: java.net.URISy
-ntaxException Illegal character in hostname at index 37: thrift://hive-metastore.docker-hadoop_default:9083
-
-Caused by: MetaException(message:Got exception: java.net.URISyntaxException Illegal character in hostname at index 37: t
-hrift://hive-metastore.docker-hadoop_default:9083)
-
-
-Caused by: MetaException(message:Got exception: java.net.URISyntaxException Illegal character in hostname at index 37: t
-hrift://hive-metastore.docker-hadoop_default:9083)
-
-
-Hive Session ID = 5d4e4c64-dd7b-4c09-b000-7a2675d27ead
-Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
-hive> show databases;
-OK
-default
-Time taken: 1.021 seconds, Fetched: 1 row(s)
-hive>
