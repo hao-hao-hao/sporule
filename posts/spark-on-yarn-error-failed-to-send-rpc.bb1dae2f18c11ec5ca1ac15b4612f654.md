@@ -43,19 +43,13 @@ For more detailed output, check the application tracking page: http://historyser
 
 ```
 
-It looks obvious that the beyond virtual memory error message, as I don't have much knowledge about this so I googled it and found two posts from stackoverflow, and the solution is obvious:
-
-```bash
-
-https://stackoverflow.com/questions/54780656/spark-on-yarn-failed-to-send-rpc-and-slave-lost
-
-
-https://stackoverflow.com/questions/43262836/apache-spark-running-spark-shell-on-yarn-error
-
-```
+It looks obvious that the job containers were killed because the virtual memory usage exceed the allocated virtual memory error message. As a result, I need to increased the virtual memory. 
 
 ## Solution
 
-The container was killed because the usage of memory exceeds the virtual memory and physical memory threshold. The solution is to change the ratio.
-The ratio is in yarn-site.xml configuration file, the name is yarn.nodemanager.vmem-pmem-ratio. The default value is 2.1 so we just need to change it to higher.
-What is the side affect of increasing this ratio? I didn't spend time to research but I guess the cluster will have resources allocation problems in the future. I will update this post if that is the case.
+I found out from official document that there is a property call **yarn.nodemanager.vmem-pmem-ratio** that controls the ratio between physical memory and virtual memory. This configuration is under **/etc/hadoop/yarn-site.xml**.
+
+The default value is 2.1 so I have changed it to 10 because my Azure machine has only 8GB of RAM.
+
+I believe the side affect is the execution of job will be slower because it is using virtual memory, which sounds like the hard disks rather than the memory.
+

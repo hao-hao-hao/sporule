@@ -26,7 +26,7 @@ coverImage:""
 | Apache Phoenix   | 5.0.0   |          |
 | Apache Pig       | 0.16.0  |          |
 | Apache Ranger    | 1.2.0   |          |
-| Apache Spark     | 2.3.2   |          |
+| Apache Spark     | 2.3.2   | Y        |
 | Apache Sqoop     | 1.4.7   |          |
 | Apache Storm     | 1.2.1   |          |
 | Apache TEZ       | 0.9.1   |          |
