@@ -15,7 +15,8 @@ if ('serviceWorker' in navigator) {
             OfflinePluginRuntime.applyUpdate();
         },
         onUpdated: () => {
-            window.location.reload();
+            console.log("updating sw.js 1")
+            //window.location.reload();
         }
     });
 }
