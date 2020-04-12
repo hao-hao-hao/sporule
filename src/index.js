@@ -9,16 +9,16 @@ import * as PostAction from "./actions/PostAction";
 import App from './pages/App';
 import "./styles/styles.css";
 
-if ('serviceWorker' in navigator) {
-    OfflinePluginRuntime.install({
-        onUpdateReady: () => {
-            OfflinePluginRuntime.applyUpdate();
-        },
-        onUpdated: () => {
-            window.location.reload();
-        }
-    });
-}
+// if ('serviceWorker' in navigator) {
+//     OfflinePluginRuntime.install({
+//         onUpdateReady: () => {
+//             OfflinePluginRuntime.applyUpdate();
+//         },
+//         onUpdated: () => {
+//             window.location.reload();
+//         }
+//     });
+// }
 
 export const { store, persistor } = configureStore(initialState);
 
