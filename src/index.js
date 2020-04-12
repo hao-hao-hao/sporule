@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 import initialState from "./reducers/InitialState";
-import * as OfflinePluginRuntime from 'offline-plugin/runtime';
+// import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 import { PersistGate } from 'redux-persist/integration/react';
 import * as PostAction from "./actions/PostAction";
 import App from './pages/App';
