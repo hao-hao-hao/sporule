@@ -9,7 +9,7 @@ export default class PostResources {
     constructor() {
         if (!instance) {
             const context = require.context("../../posts", false, /\.md$/)
-            this.defaultPaths = Utility.getAllPostsPath().slice(0, 3);
+            this.defaultPaths = Utility.getAllPostsPath();
             instance = this;
         }
         return instance;
