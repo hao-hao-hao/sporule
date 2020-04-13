@@ -4,7 +4,6 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const OfflinePlugin = require('offline-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const RobotstxtPlugin = require("robotstxt-webpack-plugin");
 const CopyPlugin = require('copy-webpack-plugin');
@@ -13,6 +12,7 @@ const SitemapPlugin = require('sitemap-webpack-plugin').default;
 const Config = require("./_config");
 const MarkdownRSSGeneratorPlugin = require("markdown-rss-generator-webpack-plugin").default;
 const MarkdownToJS = require("markdown-to-js-webpack-plugin").default;
+const {GenerateSW} = require('workbox-webpack-plugin');
 
 module.exports = {
   mode: "production",
@@ -138,6 +138,16 @@ module.exports = {
       filename: "[name].[contenthash].css",
       chunkFilename: "[id].css"
     }),
+    new GenerateSW({
+      maximumFileSizeToCacheInBytes:1e+7,
+      skipWaiting:true,
+      runtimeCaching: [{
+        urlPattern: new RegExp('/\.(js|css)$/i'),
+        handler: 'StaleWhileRevalidate'
+      }],
+      exclude: [/\.(md|png|jpe?g|gif|xml|toml|txt)$/i,/CNAME/i],
+      swDest:'sw.js'
+    }),
     new WebpackPwaManifest({
       name: Config.site,
       short_name: Config.site,
@@ -174,19 +184,6 @@ module.exports = {
         'apple-mobile-web-app-title': Config.site,
         'apple-mobile-web-app-status-bar-style': 'black-translucent'
       }
-    }),
-    new OfflinePlugin({
-      // ServiceWorker: {
-      //   events: true
-      // },
-      responseStrategy: 'cache-first',
-      excludes: ['**/*.*','**/.*', '**/*.map','**/*.md','**/*.gz', '**/*.txt', '**/sw.js', '**/netlify.toml', '**/*.jpg', '**/*.png', '**/*.gif', '**/*.jpeg', "**/CNAME",'**/*.xml', '**/*.txt'],
-      autoUpdate: 1000 * 60 * 60 * 10,
-      // externals: [
-      //   'https://cdn.jsdelivr.net/npm/pwacompat@2.0.7/pwacompat.min.js',
-      //   'https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.slim.min.js',
-      //   'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
-      // ],
-    }),
+    })
   ]
 }

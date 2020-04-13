@@ -23,7 +23,7 @@
     "markdown-it-for-inline": "^0.1.1",
     "markdown-it-prism": "^2.0.3",
     "markdown-it-toc-and-anchor-with-slugid": "^1.1.4",
-    "markdown-to-js-webpack-plugin": "latest",
+    "markdown-to-js-webpack-plugin": "0.0.1",
     "markdown-toc-unlazy": "^1.0.1",
     "query-string": "^6.8.2",
     "react": "^16.9.0",
@@ -38,7 +38,8 @@
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
     "remarkable": "^2.0.0",
-    "universal-ga": "^1.2.0"
+    "universal-ga": "^1.2.0",
+    "workbox-webpack-plugin": "^5.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",

@@ -2,12 +2,14 @@ const webpack = require('webpack');
 const path = require('path');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-var OfflinePlugin = require('offline-plugin');
+// var OfflinePlugin = require('offline-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Config = require("./_config");
 const MarkdownRSSGeneratorPlugin = require("markdown-rss-generator-webpack-plugin").default;
 const MarkdownToJS = require("markdown-to-js-webpack-plugin").default;
+const {GenerateSW} = require('workbox-webpack-plugin');
+
 
 process.env.NODE_ENV = "development";
 
@@ -26,7 +28,7 @@ module.exports = {
   output: {
     path: __dirname + '/dist',
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: '[name].[hash].js'
   },
   devServer: {
     contentBase: path.resolve(__dirname, 'src'),
@@ -120,18 +122,15 @@ module.exports = {
       },
     }),
     new MarkdownToJS(),
-    new OfflinePlugin({
-      ServiceWorker: {
-        events: true
-      },
-      responseStrategy: 'cache-first',
-      excludes: ['**/*.*','**/.*', '**/*.map','**/*.md','**/*.gz', '**/*.txt', '**/sw.js', '**/netlify.toml', '**/*.jpg', '**/*.png', '**/*.gif', '**/*.jpeg', "**/CNAME",'**/*.xml', '**/*.txt'],
-      autoUpdate: 1000 * 60 * 2,
-      externals: [
-        'https://cdn.jsdelivr.net/npm/pwacompat@2.0.7/pwacompat.min.js',
-        'https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.slim.min.js',
-        'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
-      ],
+    new GenerateSW({
+      maximumFileSizeToCacheInBytes:1e+7,
+      skipWaiting:true,
+      runtimeCaching: [{
+        urlPattern: new RegExp('/\.(js|css)$/i'),
+        handler: 'StaleWhileRevalidate'
+      }],
+      exclude: [/\.(md|png|jpe?g|gif|xml|toml|txt)$/i,/CNAME/i],
+      swDest:'sw.js'
     }),
     new WebpackPwaManifest({
       name: Config.site,
