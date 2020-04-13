@@ -132,19 +132,6 @@ module.exports = {
       templateParameters: Config
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new OfflinePlugin({
-      ServiceWorker: {
-        events: true
-      },
-      responseStrategy: 'cache-first',
-      excludes: ['**/*.*','**/.*', '**/*.map','**/*.md','**/*.gz', '**/*.txt', '**/sw.js', '**/netlify.toml', '**/*.jpg', '**/*.png', '**/*.gif', '**/*.jpeg', "**/CNAME",'**/*.xml', '**/*.txt'],
-      autoUpdate: 1000 * 60 * 60 * 10,
-      // externals: [
-      //   'https://cdn.jsdelivr.net/npm/pwacompat@2.0.7/pwacompat.min.js',
-      //   'https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.slim.min.js',
-      //   'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
-      // ],
-    }),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
@@ -187,6 +174,19 @@ module.exports = {
         'apple-mobile-web-app-title': Config.site,
         'apple-mobile-web-app-status-bar-style': 'black-translucent'
       }
-    })
+    }),
+    new OfflinePlugin({
+      // ServiceWorker: {
+      //   events: true
+      // },
+      responseStrategy: 'cache-first',
+      excludes: ['**/*.*','**/.*', '**/*.map','**/*.md','**/*.gz', '**/*.txt', '**/sw.js', '**/netlify.toml', '**/*.jpg', '**/*.png', '**/*.gif', '**/*.jpeg', "**/CNAME",'**/*.xml', '**/*.txt'],
+      autoUpdate: 1000 * 60 * 60 * 10,
+      // externals: [
+      //   'https://cdn.jsdelivr.net/npm/pwacompat@2.0.7/pwacompat.min.js',
+      //   'https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.slim.min.js',
+      //   'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
+      // ],
+    }),
   ]
 }
