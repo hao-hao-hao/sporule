@@ -17,7 +17,17 @@ export default class PostResources {
     }
 
     getAll(paths = this.defaultPaths, forceUpdate = false) {
-        const states = store.getState();
+        
+        let mdHandler = new MarkdownHandler();
+        return mdHandler.loadMds(paths).then(posts => {
+            posts.categories = PostHelper.getCategories(posts);
+            posts.tags = PostHelper.getTags(posts);
+            posts = PostHelper.addLink(posts);
+            return new Promise((resolve, reject) => {
+                resolve(posts);
+            });
+        });
+        // const states = store.getState();
         // let currentPostItems = states.posts.items;
         // let currentPaths = currentPostItems.map(item => item["path"]);
         // let newPaths = paths.filter(path => !currentPaths.includes(path));
@@ -39,15 +49,5 @@ export default class PostResources {
         //         resolve(posts);
         //     });
         // });
-        let mdHandler = new MarkdownHandler();
-        return mdHandler.loadMds(paths).then(posts => {
-            posts.categories = PostHelper.getCategories(posts);
-            posts.tags = PostHelper.getTags(posts);
-            posts = PostHelper.addLink(posts);
-            return new Promise((resolve, reject) => {
-                resolve(posts);
-            });
-        });
-
     }
 }

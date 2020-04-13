@@ -3,27 +3,31 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 import initialState from "./reducers/InitialState";
-// import * as OfflinePluginRuntime from 'offline-plugin/runtime';
+import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 import { PersistGate } from 'redux-persist/integration/react';
 import * as PostAction from "./actions/PostAction";
 import App from './pages/App';
 import "./styles/styles.css";
 
-// if ('serviceWorker' in navigator) {
-//     OfflinePluginRuntime.install({
-//         onUpdateReady: () => {
-//             OfflinePluginRuntime.applyUpdate();
-//         },
-//         onUpdated: () => {
-//             window.location.reload();
-//         }
-//     });
-// }
+if ('serviceWorker' in navigator) {
+    OfflinePluginRuntime.install({
+        onUpdateReady: () => {
+            OfflinePluginRuntime.applyUpdate();
+        },
+        onUpdated: () => {
+            window.location.reload();
+        }
+    });
+}
 
 export const { store, persistor } = configureStore(initialState);
 
 setTimeout(() => {
-    store.dispatch(PostAction.loadPosts());
+    const states = store.getState();
+    if (states.posts.items < 1) {
+        //load posts if the current list is empty
+        store.dispatch(PostAction.loadPosts());
+    }
 }, 1000);
 
 

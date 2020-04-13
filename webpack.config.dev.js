@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// var OfflinePlugin = require('offline-plugin');
+var OfflinePlugin = require('offline-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Config = require("./_config");
@@ -120,19 +120,19 @@ module.exports = {
       },
     }),
     new MarkdownToJS(),
-    // new OfflinePlugin({
-    //   ServiceWorker: {
-    //     events: true
-    //   },
-    //   responseStrategy: 'cache-first',
-    //   excludes: ['**/.*', '**/*.map', '**/*.gz', '**/*.txt', '**/sw.js', '**/*.md', '**/*.jpg', '**/*.png', '**/*.gif', '**/*.jpeg', "**/CNAME"],
-    //   autoUpdate: 1000 * 60 * 2,
-    //   externals: [
-    //     'https://cdn.jsdelivr.net/npm/pwacompat@2.0.7/pwacompat.min.js',
-    //     'https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.slim.min.js',
-    //     'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
-    //   ],
-    // }),
+    new OfflinePlugin({
+      ServiceWorker: {
+        events: true
+      },
+      responseStrategy: 'cache-first',
+      excludes: ['**/.*', '**/*.map', '**/md.js','**/*.gz', '**/*.txt', '**/sw.js', '**/netlify.toml', '**/*.jpg', '**/*.png', '**/*.gif', '**/*.jpeg', "**/CNAME",'**/*.xml', '**/*.txt'],
+      autoUpdate: 1000 * 60 * 2,
+      externals: [
+        'https://cdn.jsdelivr.net/npm/pwacompat@2.0.7/pwacompat.min.js',
+        'https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.slim.min.js',
+        'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
+      ],
+    }),
     new WebpackPwaManifest({
       name: Config.site,
       short_name: Config.site,

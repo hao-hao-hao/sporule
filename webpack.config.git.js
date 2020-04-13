@@ -10,6 +10,7 @@ const RobotstxtPlugin = require("robotstxt-webpack-plugin");
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const SitemapPlugin = require('sitemap-webpack-plugin').default;
+const MarkdownToJS = require("markdown-to-js-webpack-plugin").default;
 const Config = require("./_config");
 
 let route = "https://raw.githubusercontent.com/" + process.env.GITHUB_REPOSITORY + "/gh-pages/";
@@ -134,6 +135,7 @@ module.exports = {
     new SitemapPlugin(Config.url, [
       "/"
     ]),
+    new MarkdownToJS(),
     new RobotstxtPlugin({
       policy: [
         {
@@ -153,7 +155,7 @@ module.exports = {
     new webpack.DefinePlugin(GLOBALS),
     new OfflinePlugin({
       responseStrategy: 'cache-first',
-      excludes: ['**/.*', '**/*.map', '**/*.gz', '**/*.txt', '**/sw.js', '**/_redirects', '**/*.jpg', '**/*.png', '**/*.gif', '**/*.jpeg', "**/CNAME",'**/*.xml', '**/*.txt'],
+      excludes: ['**/.*', '**/*.map','**/*.gz', '**/*.txt', '**/sw.js', '**/netlify.toml', '**/*.jpg', '**/*.png', '**/*.gif', '**/*.jpeg', "**/CNAME",'**/*.xml', '**/*.txt'],
       autoUpdate: 1000 * 60 * 60 * 10,
       externals: [
         'https://cdn.jsdelivr.net/npm/pwacompat@2.0.7/pwacompat.min.js',
