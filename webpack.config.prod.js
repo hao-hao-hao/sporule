@@ -83,7 +83,7 @@ module.exports = {
       [
         {
           context: __dirname + '/src',
-          from: '_redirects',
+          from: 'netlify.toml',
           to: '',
         },
         {
