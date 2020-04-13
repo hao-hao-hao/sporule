@@ -125,7 +125,7 @@ module.exports = {
         events: true
       },
       responseStrategy: 'cache-first',
-      excludes: ['**/.*', '**/*.map','**/*.md','**/*.gz', '**/*.txt', '**/sw.js', '**/netlify.toml', '**/*.jpg', '**/*.png', '**/*.gif', '**/*.jpeg', "**/CNAME",'**/*.xml', '**/*.txt'],
+      excludes: ['**/*.*','**/.*', '**/*.map','**/*.md','**/*.gz', '**/*.txt', '**/sw.js', '**/netlify.toml', '**/*.jpg', '**/*.png', '**/*.gif', '**/*.jpeg', "**/CNAME",'**/*.xml', '**/*.txt'],
       autoUpdate: 1000 * 60 * 2,
       externals: [
         'https://cdn.jsdelivr.net/npm/pwacompat@2.0.7/pwacompat.min.js',
