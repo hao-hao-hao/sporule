@@ -2,11 +2,12 @@ const webpack = require('webpack');
 const path = require('path');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-var OfflinePlugin = require('offline-plugin');
+// var OfflinePlugin = require('offline-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Config = require("./_config");
 const MarkdownRSSGeneratorPlugin = require("markdown-rss-generator-webpack-plugin").default;
+const MarkdownToJS = require("markdown-to-js-webpack-plugin").default;
 
 process.env.NODE_ENV = "development";
 
@@ -78,11 +79,11 @@ module.exports = {
   plugins: [
     new CopyPlugin(
       [
-        {
-          context: __dirname + '/src',
-          from: '_redirects',
-          to: '',
-        },
+        // {
+        //   context: __dirname + '/src',
+        //   from: '_redirects',
+        //   to: '',
+        // },
         {
           context: __dirname + "/posts",
           from: 'images/**/*',
@@ -118,19 +119,20 @@ module.exports = {
         link: "https://www.sporule.com"
       },
     }),
-    new OfflinePlugin({
-      ServiceWorker: {
-        events: true
-      },
-      responseStrategy: 'cache-first',
-      excludes: ['**/.*', '**/*.map', '**/*.gz', '**/*.txt', '**/sw.js', '**/*.md', '**/_redirects', '**/*.jpg', '**/*.png', '**/*.gif', '**/*.jpeg', "**/CNAME"],
-      autoUpdate: 1000 * 60 * 2,
-      externals: [
-        'https://cdn.jsdelivr.net/npm/pwacompat@2.0.7/pwacompat.min.js',
-        'https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.slim.min.js',
-        'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
-      ],
-    }),
+    new MarkdownToJS(),
+    // new OfflinePlugin({
+    //   ServiceWorker: {
+    //     events: true
+    //   },
+    //   responseStrategy: 'cache-first',
+    //   excludes: ['**/.*', '**/*.map', '**/*.gz', '**/*.txt', '**/sw.js', '**/*.md', '**/*.jpg', '**/*.png', '**/*.gif', '**/*.jpeg', "**/CNAME"],
+    //   autoUpdate: 1000 * 60 * 2,
+    //   externals: [
+    //     'https://cdn.jsdelivr.net/npm/pwacompat@2.0.7/pwacompat.min.js',
+    //     'https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.slim.min.js',
+    //     'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
+    //   ],
+    // }),
     new WebpackPwaManifest({
       name: Config.site,
       short_name: Config.site,

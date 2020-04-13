@@ -12,6 +12,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const SitemapPlugin = require('sitemap-webpack-plugin').default;
 const Config = require("./_config");
 const MarkdownRSSGeneratorPlugin = require("markdown-rss-generator-webpack-plugin").default;
+const MarkdownToJS = require("markdown-to-js-webpack-plugin").default;
 
 module.exports = {
   mode: "production",
@@ -114,6 +115,7 @@ module.exports = {
         link: "https://www.sporule.com"
       },
     }),
+    new MarkdownToJS(),
     new RobotstxtPlugin({
       policy: [
         {

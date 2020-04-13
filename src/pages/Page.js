@@ -67,7 +67,6 @@ class Page extends React.Component {
     }
 
     render() {
-        console.log("this is the latest2")
         // get parameters
         const categoriesString = this.props.match.params.categories;
         const tagsString = queryString.parse(this.props.location.search).tags;
