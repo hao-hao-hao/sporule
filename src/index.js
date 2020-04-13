@@ -9,7 +9,7 @@ import * as PostAction from "./actions/PostAction";
 import App from './pages/App';
 import "./styles/styles.css";
 
-if ('serviceWorker' in navigator) {
+// if ('serviceWorker' in navigator) {
     OfflinePluginRuntime.install({
         onUpdateReady: () => {
             OfflinePluginRuntime.applyUpdate();
@@ -18,7 +18,7 @@ if ('serviceWorker' in navigator) {
             window.location.reload();
         }
     });
-}
+// }
 
 export const { store, persistor } = configureStore(initialState);
 
