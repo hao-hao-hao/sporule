@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sporule.com/</id>
     <title>Sporule</title>
-    <updated>2020-04-14T19:30:08.573Z</updated>
+    <updated>2020-04-14T19:59:35.068Z</updated>
     <generator>Sporule</generator>
     <author>
         <name>Sporule</name>
@@ -30,7 +30,8 @@ HiveException java.lang.RuntimeException: Unable to instantiate org.apache.hadoo
 
 
 I started hive with a debug ......]]></summary>
-        <content type="html"><![CDATA[<h2>Problem</h2>
+        <content type="html"><![CDATA[<p><img src="https://imgix.datadoghq.com/img/blog/hive/apache_hive_hero_final-01.png" alt="coverimage"></p>
+<h2>Problem</h2>
 <p>I use docker compose to build my Hadoop cluster, and Hive is one of the component. I received error message:</p>
 <pre><code class="language-bash">
 HiveException java.lang.RuntimeException: Unable to instantiate org.apache.hadoop.hive.ql.metadata.SessionHiveMetaStoreClient
@@ -76,7 +77,8 @@ hive&gt;
         <link href="https://www.sporule.com/items/spark-on-yarn-error-failed-to-send-rpc"/>
         <updated>2020-04-05T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[I am new to the big data world, and I am trying to build a Hadoop cluster by using docker. The spark shell did not work with the error message ......]]></summary>
-        <content type="html"><![CDATA[<h2>Problem</h2>
+        <content type="html"><![CDATA[<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Apache_Spark_logo.svg/1920px-Apache_Spark_logo.svg.png" alt="coverimage"></p>
+<h2>Problem</h2>
 <p>I am new to the big data world, and I am trying to build a Hadoop cluster by using docker. The spark shell did not work with the error message below:</p>
 <pre><code class="language-bash">
 Failed to send RPC 4858956348523471318 to /10.20.42.194:54288: java.nio.channels.ClosedChannelException
@@ -114,7 +116,8 @@ For more detailed output, check the application tracking page: http://historyser
         <link href="https://www.sporule.com/items/define-output-column-in-flask-sqlalchemy"/>
         <updated>2019-11-24T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[I am writing a Web API in python for a general purpose CMS by using Flask + Flask - SqlAlchemy. It is very easy to use but it does not ......]]></summary>
-        <content type="html"><![CDATA[<h2>The background</h2>
+        <content type="html"><![CDATA[<p><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRilFX9Kg2VGgC02Fy6ILT5PKamAfygZnD6XsqahK4zwHY80M9f2w&amp;s" alt="coverimage"></p>
+<h2>The background</h2>
 <p>I am writing a Web API in python for a general purpose CMS by using Flask + Flask - SqlAlchemy. It is very easy to use but it does not provide a native way to declare what should be the output colums. This function is very useful as I don't want to pass everything to the client.</p>
 <h2>What we want to achieve</h2>
 <p>We want to be able to output selected columns from a SQLAlchemy object as dictionary, the reason we are outputing it as dictionary is because Flask can't jsonify the SQLAlchemy Object directly.</p>
@@ -260,7 +263,8 @@ class Role(db.Model,DBMixin):
         <summary type="html"><![CDATA[This guide is going to show you how to build an Amazon Alexa Skills in 10 minutes by using python, aws and an information api.
 
 In addition, Amazon is currently running ......]]></summary>
-        <content type="html"><![CDATA[<h2>Background</h2>
+        <content type="html"><![CDATA[<p><img src="https://i.imgur.com/zt5JIa3.png" alt="coverimage"></p>
+<h2>Background</h2>
 <p>This guide is going to show you how to build an Amazon Alexa Skills in 10 minutes by using python, aws and an information api.</p>
 <p>In addition, Amazon is currently running a promotion for giving out Echo for free. In summary:</p>
 <ul>
@@ -377,7 +381,8 @@ In my scenario, I can say:</p>
         <link href="https://www.sporule.com/items/released-first-version-of-sporule-blog-system"/>
         <updated>2019-10-05T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[This is the pure front end system I mentioned in my previous posts, although it is not perfect yet, but I still want to release it out because the core ......]]></summary>
-        <content type="html"><![CDATA[<h2>Background</h2>
+        <content type="html"><![CDATA[<p><img src="https://i.imgur.com/CRKGEJk.png" alt="coverimage"></p>
+<h2>Background</h2>
 <p>This is the pure front end system I mentioned in my previous posts, although it is not perfect yet, but I still want to release it out because the core functionality is ready.</p>
 <h2>Features</h2>
 <ul>
@@ -524,7 +529,8 @@ In my scenario, I can say:</p>
         <link href="https://www.sporule.com/items/released-first-version-of-markdown-handler"/>
         <updated>2019-09-22T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[I am building a micro blog system because I don't really like the concept of static site generator, I believe the content of the site should be dynamic because I ......]]></summary>
-        <content type="html"><![CDATA[<h2>Background</h2>
+        <content type="html"><![CDATA[<p><img src="https://i.imgur.com/xkhBTzk.png" alt="coverimage"></p>
+<h2>Background</h2>
 <p>I am building a micro blog system because I don't really like the concept of static site generator, I believe the content of the site should be dynamic because I don't really want to rebuild the site again and again.
 Markdown-handler loads the markdown files on the fly through javascript and generate meta datas such as coverimage, thumbnail etc..</p>
 <h2>Markdown Handler Details</h2>
@@ -684,7 +690,8 @@ Mel solet aperiri similique id, ei mutat essent cotidieque eam, tempor ancillae 
         <summary type="html"><![CDATA[I found that it is very straightforward to generate the vocab by using keras, however the examples on their website is not very straightforward.
 
 The example below is read a QA ......]]></summary>
-        <content type="html"><![CDATA[<h2>Backgrounds</h2>
+        <content type="html"><![CDATA[<p><img src="https://miro.medium.com/max/1000/1*LkKz4wtZNBo5i-Vc8DWhTA.png" alt="coverimage"></p>
+<h2>Backgrounds</h2>
 <p>I found that it is very straightforward to generate the vocab by using keras, however the examples on their website is not very straightforward.</p>
 <p>The example below is read a QA Data Set from csv file, and then generate a vocab by using the <code>keras.preprocessing</code> library.</p>
 <p>Start with loading the data</p>
@@ -781,7 +788,8 @@ vocab,q_seqs,a_seqs,qa_set = generate_vocab(qa_df['Question'],qa_df['Answer'],MA
         <summary type="html"><![CDATA[The default MXNet installed in Kaggle's python container is 1.3.1 rather than the CUDA version of MXNet.
 
 So what we need do is simply uninstalled the current MXNet and install the ......]]></summary>
-        <content type="html"><![CDATA[<h2>Backgrounds</h2>
+        <content type="html"><![CDATA[<p><img src="https://miro.medium.com/max/668/1*GZrTyTz0OKMbxnO5Trhcew.png" alt="coverimage"></p>
+<h2>Backgrounds</h2>
 <p>The default MXNet installed in Kaggle's python container is 1.3.1 rather than the CUDA version of MXNet.</p>
 <p>So what we need do is simply uninstalled the current MXNet and install the CUDA version of MXNet.</p>
 <h2>How to</h2>
@@ -808,7 +816,8 @@ Follow MXNet's guide on how to use GPU for data training.</p>
         <summary type="html"><![CDATA[pyenv is a simple python version management package, it allows you to install different version of python in your machine.
 
 pyenv-virtualenv is a plugin for pyenv to use virutal python environment ......]]></summary>
-        <content type="html"><![CDATA[<h2>Backgrounds</h2>
+        <content type="html"><![CDATA[<p><img src="https://i.imgur.com/sHZq6hn.png" alt="coverimage"></p>
+<h2>Backgrounds</h2>
 <p>pyenv is a simple python version management package, it allows you to install different version of python in your machine.</p>
 <p>pyenv-virtualenv is a plugin for pyenv to use virutal python environment in your machine.</p>
 <p>This package is very useful as you can simply switch python environment as well as build the live environment in your PC without impacting the master version of python.</p>
@@ -860,7 +869,8 @@ xz-utils tk-dev libffi-dev liblzma-dev
         <summary type="html"><![CDATA[ARChon is a very useful software where allows users to run android application in Chrome.
 
 However, you will need to set the external storage permission for the apk to specify the ......]]></summary>
-        <content type="html"><![CDATA[<h2>Backgrounds</h2>
+        <content type="html"><![CDATA[<p><img src="https://techdissected.com/wp-content/uploads/2015/04/Archon-Custom-Runtime-1920x500.jpg" alt="coverimage"></p>
+<h2>Backgrounds</h2>
 <p>ARChon is a very useful software where allows users to run android application in Chrome.</p>
 <p>However, you will need to set the external storage permission for the apk to specify the storage location for the Android app.</p>
 <p>This is extremly useful when you are trying to use the video or music app to cache content.</p>
@@ -888,7 +898,8 @@ However, you will need to set the external storage permission for the apk to spe
         <summary type="html"><![CDATA[I was building a PWA app that consumes APIs from some providers.
 
 As PWA is just a web app, so it has the exactly the same CORS restrictions as other web ......]]></summary>
-        <content type="html"><![CDATA[<h2>Backgrounds</h2>
+        <content type="html"><![CDATA[<p><img src="https://i.imgur.com/IVXFYbt.png" alt="coverimage"></p>
+<h2>Backgrounds</h2>
 <p>I was building a PWA app that consumes APIs from some providers.</p>
 <p>As PWA is just a web app, so it has the exactly the same CORS restrictions as other web apps.</p>
 <p>You won't have this type of issue if you are using native development, so it is very annoying as I don't have access to those APIs server to enable Cross Origin Request.</p>
@@ -932,7 +943,8 @@ git push heroku master
         <summary type="html"><![CDATA[Flutter was quiet hot in the Tech news these days, so I am giving it a try to write an Android app.
 
 It share the similar concept as React, which uses ......]]></summary>
-        <content type="html"><![CDATA[<h2>The Problem</h2>
+        <content type="html"><![CDATA[<p><img src="https://i.imgur.com/GzmpA4s.png" alt="coverimage"></p>
+<h2>The Problem</h2>
 <p>Flutter was quiet hot in the Tech news these days, so I am giving it a try to write an Android app.</p>
 <p>It share the similar concept as React, which uses the States system. I wouldn't explain more here as this can be found all over the place in Google.</p>
 <p>I did some Windows development before, which has a control &quot;MessageBox&quot; is very useful to give some feedback information to the user.</p>
@@ -1006,7 +1018,8 @@ It share the similar concept as React, which uses ......]]></summary>
 Yesterday I was trying to use EXOPlayer in my Pixel but it couldn't stream video (m3u8) by using EXOPlayer.
 
 The error message is ......]]></summary>
-        <content type="html"><![CDATA[<h2>The Problem</h2>
+        <content type="html"><![CDATA[<p><img src="https://miro.medium.com/max/3092/1*oxK1gF5zFP9z9_9qFDOKlQ.png" alt="coverimage"></p>
+<h2>The Problem</h2>
 <p>EXOPlayer is  an open source video player for mobile.
 Yesterday I was trying to use EXOPlayer in my Pixel but it couldn't stream video (m3u8) by using EXOPlayer.</p>
 <p>The error message is not very clear: &quot;Source Error, can't connect to http://xxxxxxxx&quot;</p>
@@ -1036,7 +1049,8 @@ Yesterday I was trying to use EXOPlayer in my Pixel but it couldn't stream video
 ```bash
 ERROR in ./~/onsenui/css/font_awesome/fonts/fontawesome-webfont.woff?v=4.7.0
 Module parse failed: C:\Users\luoha\Documents\Projects\spplayer-pwa\node_modules\onsenui\css\font_awesome\fonts\f ......]]></summary>
-        <content type="html"><![CDATA[<h2>The problem</h2>
+        <content type="html"><![CDATA[<p><img src="https://www.valentinog.com/blog/wp-content/uploads/2018/01/tutorial-webpack-4-featured.png" alt="coverimage"></p>
+<h2>The problem</h2>
 <p>I was using webpack to package the woff file from fontawsome in OnsenUI, however it raise the error:</p>
 <pre><code class="language-bash">ERROR in ./~/onsenui/css/font_awesome/fonts/fontawesome-webfont.woff?v=4.7.0
 Module parse failed: C:\Users\luoha\Documents\Projects\spplayer-pwa\node_modules\onsenui\css\font_awesome\fonts\fontawesome-webfont.woff?v=4.7.0 Unexpected character '' (1:4)
@@ -1069,7 +1083,8 @@ State Pattern Implementation:
 Below is a simple TV on and off example.
 
 The TV contains ......]]></summary>
-        <content type="html"><![CDATA[<h2>What is States Pattern</h2>
+        <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/Hao-Luo/DesignPattern/master/StatePattern/StatePattern.png" alt="coverimage"></p>
+<h2>What is States Pattern</h2>
 <p>States pattern set a state to a object, then the object will have different behaviours in different states.</p>
 <p>State Pattern Implementation:
 Below is a simple TV on and off example.</p>
@@ -1133,7 +1148,8 @@ class StateOff(State):
         <link href="https://www.sporule.com/items/composite-pattern-consistent-representation-of-each-item-in-hierarchy-structure"/>
         <updated>2019-05-28T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Sometimes we have a requriements that to have a hierarchy design of objects. Such as limitless navigation. Navigation could have individual item and individual item with sub items. Applying composite ......]]></summary>
-        <content type="html"><![CDATA[<h2>What is Composite Pattern</h2>
+        <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/Hao-Luo/DesignPattern/master/CompositePattern/CompositePattern.png" alt="coverimage"></p>
+<h2>What is Composite Pattern</h2>
 <p>Sometimes we have a requriements that to have a hierarchy design of objects. Such as limitless navigation. Navigation could have individual item and individual item with sub items. Applying composite pattern will make all navigation item in a consistent way not matter if it has children item or not.</p>
 <h2>Composite Pattern Implementation</h2>
 <p>Below is a simple nodes tree structure example.</p>
@@ -1203,7 +1219,8 @@ nodeA.Print()
         <summary type="html"><![CDATA[Iterator pattern provides a consistent interface to different aggregate objects such as list, dictionary etc. It disconnect the user of the iterator interface and its underlying objects.
 
 For example the user ......]]></summary>
-        <content type="html"><![CDATA[<h2>What is Iterator Pattern</h2>
+        <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/Hao-Luo/DesignPattern/master/IteratorPattern/IteratorPattern.png" alt="coverimage"></p>
+<h2>What is Iterator Pattern</h2>
 <p>Iterator pattern provides a consistent interface to different aggregate objects such as list, dictionary etc. It disconnect the user of the iterator interface and its underlying objects.</p>
 <p>For example the user of the iterator interface does not need to worry about the underlying objects is dict or array etc.</p>
 <h2>Iterator Pattern Implementation</h2>
@@ -1350,7 +1367,8 @@ Helper.PrintAllNames(teachersIterator)
         <summary type="html"><![CDATA[Template pattern sets the template for a logical process / algorithms that can be implemented in its children class.
 
 In addition, using a hook in the template pattern provides the flexibility ......]]></summary>
-        <content type="html"><![CDATA[<h2>What is Template Pattern</h2>
+        <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/Hao-Luo/DesignPattern/master/TemplatePattern/TemplatePattern.png" alt="coverimage"></p>
+<h2>What is Template Pattern</h2>
 <p>Template pattern sets the template for a logical process / algorithms that can be implemented in its children class.</p>
 <p>In addition, using a hook in the template pattern provides the flexibility for its children class to exectue functions that are special for the children class.</p>
 <h2>Template Pattern Implementation</h2>
@@ -1427,7 +1445,8 @@ cabbage.ConvertToMeal()
 
 
 Below ......]]></summary>
-        <content type="html"><![CDATA[<h2>What is Facade Pattern</h2>
+        <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/Hao-Luo/DesignPattern/master/FacadePattern/FacadePattern.png" alt="coverimage"></p>
+<h2>What is Facade Pattern</h2>
 <p>It is very similar to the adapter pattern, but it simplify the interface for the client. By doing that, it also decouples the client and the components behind the interface.</p>
 <h2>Adapter Pattern Implementation</h2>
 <p>Below is a simple example of using Remote Control to turn on DVD Player and TV for watching movies.</p>
@@ -1503,7 +1522,8 @@ control.WatchMovie() #output ABC TV is on and ABC DVD PLayer is playing
         <link href="https://www.sporule.com/items/adapter-pattern-connects-two-existing-components-together-without-touching-them"/>
         <updated>2019-03-07T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Sometimes we want to integrate a vendor solution or a component that is not part of the design. As we can't change the vendors solution, and we don't want to ......]]></summary>
-        <content type="html"><![CDATA[<h2>What is Adapter Pattern</h2>
+        <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/Hao-Luo/DesignPattern/master/AdapterPattern/AdapterPattern.png" alt="coverimage"></p>
+<h2>What is Adapter Pattern</h2>
 <p>Sometimes we want to integrate a vendor solution or a component that is not part of the design. As we can't change the vendors solution, and we don't want to change how our application works. Adapter Pattern is very useful in this scenario, it adds a layer between our solution and the vendors solution.</p>
 <h2>Adapter Pattern Implementation</h2>
 <p>Below is a simple example of using Remote Control to control a TV.</p>
@@ -1565,7 +1585,8 @@ control.SwitchOnTV() #output ABC TV is on.
         <link href="https://www.sporule.com/items/singleton-pattern-global-access-to-only-one-instance-when-is-needed"/>
         <updated>2019-02-23T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Singleton Pattern is making sure that only one instance of the class can be created. Normally it is to make sure the data integrity. For example if you have two ......]]></summary>
-        <content type="html"><![CDATA[<h2>What is Singleton Pattern</h2>
+        <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/Hao-Luo/DesignPattern/master/SingletonPattern/SingletonPattern.png" alt="coverimage"></p>
+<h2>What is Singleton Pattern</h2>
 <p>Singleton Pattern is making sure that only one instance of the class can be created. Normally it is to make sure the data integrity. For example if you have two connections that connects to the database at the same time, then it may raise the conflict. Another example will be Caching, ideally we should only have 1 Cache for the system unless we have a valid reason to do it.</p>
 <p>Singleton and Global Variable is very differnt, the main difference I found is Singleton is a lazy loading of Global variables. Global variables needs to be initated when starting the application, but Singleton will be initiated in the first usage.</p>
 <h2>Singleton Pattern Implementation</h2>
@@ -1631,7 +1652,8 @@ cache_s2.Get()
         <link href="https://www.sporule.com/items/command-pattern-encapsulates-actions-as-object"/>
         <updated>2019-02-23T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Command Pattern packages(encapsualtes) commands(actions) as a objects that can be injected into command runners. These objects will expose a public method( such as Do(), Exec() etc...) for the purpose of ......]]></summary>
-        <content type="html"><![CDATA[<h2>What is Command Pattern</h2>
+        <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/Hao-Luo/DesignPattern/master/CommandPattern/CommandPattern.png" alt="coverimage"></p>
+<h2>What is Command Pattern</h2>
 <p>Command Pattern packages(encapsualtes) commands(actions) as a objects that can be injected into command runners. These objects will expose a public method( such as Do(), Exec() etc...) for the purpose of triggering the actions. Simple command exectuers could be threads, computers, remote controls etc.. By dong this, the command runner does not need to know what are the commands as they will only execute the command objects' generic public function.</p>
 <h2>Command Pattern Implementation</h2>
 <p>In the example below, we are having one computer to exectue different commands in order. All exectued commands will be print to the screen.</p>
@@ -1728,7 +1750,8 @@ Running - Name: CleanFilesCommand 2 / Command: CleanFilesCommand.
         <summary type="html"><![CDATA[Slice is a very important function in GoLang, which can help us to work with array easily.
 
 However I just relised that GoLang only allows extention of Slice to the right, ......]]></summary>
-        <content type="html"><![CDATA[<h2>Fun Fact</h2>
+        <content type="html"><![CDATA[<p><img src="https://www.vertica.com/wp-content/uploads/2019/07/Golang.png" alt="coverimage"></p>
+<h2>Fun Fact</h2>
 <p>Slice is a very important function in GoLang, which can help us to work with array easily.</p>
 <p>However I just relised that GoLang only allows extention of Slice to the right, but not from the left.</p>
 <p>In below example, we can drop the last four elements of slice by using X[:4] and then extend it back by using X[:6].</p>
@@ -1803,7 +1826,8 @@ func printSlice(s []int) {
         <link href="https://www.sporule.com/items/factory-pattern-do-not-depend-on-concrete-implementations"/>
         <updated>2019-01-25T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Factory Pattern removes code dependenices from the concrete objects,which means the caller of the code don't need to worry about the actual implemenation so the caller does not need to ......]]></summary>
-        <content type="html"><![CDATA[<h2>What is Factory Pattern</h2>
+        <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/Hao-Luo/DesignPattern/master/FactoryPattern/Factory%20Pattern.png" alt="coverimage"></p>
+<h2>What is Factory Pattern</h2>
 <p>Factory Pattern removes code dependenices from the concrete objects,which means the caller of the code don't need to worry about the actual implemenation so the caller does not need to change when the underlying is changed.</p>
 <p>A very simple example is we order takeaway from a shop, but we don't care how they cook it. It means the shop can change their ingredients or even their chief without impacting all its customers.</p>
 <h2>Factory Pattern Implementation</h2>
@@ -1902,7 +1926,8 @@ Samsung S8: From Factory: MyPhone Phone is unlocked by Iris
 
 
 A website was built for ......]]></summary>
-        <content type="html"><![CDATA[<h2>What is Decorator Pattern</h2>
+        <content type="html"><![CDATA[<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Decorator_UML_class_diagram.svg/400px-Decorator_UML_class_diagram.svg.png" alt="coverimage"></p>
+<h2>What is Decorator Pattern</h2>
 <p>Decorator Pattern can change a function without making any changes in the function. It means the changes of the function would not impact any existing code.</p>
 <h2>The Problem</h2>
 <p>A website was built for sharing local news. Now they want to build the API to share content with other developers.</p>
@@ -1992,7 +2017,8 @@ print(b.export_content_decorator())
         <updated>2018-12-27T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[- From the book: The Observer Pattern defines a one-to-many dependency between objects so that when one object changes state, all of its dependents are notified and updated automatically.
 - From ......]]></summary>
-        <content type="html"><![CDATA[<h2>What is Observer Pattern</h2>
+        <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/Hao-Luo/DesignPattern/master/ObserverPattern/Class%20Diagram.jpg" alt="coverimage"></p>
+<h2>What is Observer Pattern</h2>
 <ul>
 <li>From the book: The Observer Pattern defines a one-to-many dependency between objects so that when one object changes state, all of its dependents are notified and updated automatically.</li>
 <li>From me: The Observer Pattern is trying to resolve the problem of coupling in a &quot;One&quot; to &quot;Many&quot; relationship by handed over the update responsibilities to the &quot;One&quot;.</li>
@@ -2071,7 +2097,8 @@ class Customer(Subscriber):
         <summary type="html"><![CDATA[The reason for me to create this package is I have had excerpt issues in my blog.
 
 My blog's layout will change if my post excerpt have unclosed tag, I was ......]]></summary>
-        <content type="html"><![CDATA[<h2>The Concept</h2>
+        <content type="html"><![CDATA[<p><img src="https://i.imgur.com/xccQnBJ.png" alt="coverimage"></p>
+<h2>The Concept</h2>
 <p>The reason for me to create this package is I have had excerpt issues in my blog.</p>
 <p>My blog's layout will change if my post excerpt have unclosed tag, I was using a plain text excerpt to replace HTML excerpt but it does not look great.</p>
 <p>The solution itself is very simple, the logic is:</p>
@@ -2104,7 +2131,8 @@ closed_html = tagcloser.close_tags(sample_html)
         <updated>2018-11-23T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[- From the Book: The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it.
 - ......]]></summary>
-        <content type="html"><![CDATA[<h2>What is Strategy Pattern</h2>
+        <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/hao-hao-hao/DesignPattern/master/StrategyPattern/Class%20Diagram.jpg" alt="coverimage"></p>
+<h2>What is Strategy Pattern</h2>
 <ul>
 <li>From the Book: The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it.</li>
 <li>From me: Strategy Pattern is trying to resolve the problem of inheritance by using composition( Has-a rather than Is-a ).</li>
@@ -2250,7 +2278,8 @@ Program to an interface, not an implementation. (We used different charge hehavi
 
 ```bash
 DECLARE @Sql NVARCHAR(500) ......]]></summary>
-        <content type="html"><![CDATA[<h2>Main Topic</h2>
+        <content type="html"><![CDATA[<p><img src="http://www.wisetrack.com/wp-content/uploads/2018/05/1768.sql_logo.png" alt="coverimage"></p>
+<h2>Main Topic</h2>
 <p>Sometimes it is a pain to drop the database and recreate it, now I found a script that can drop all tables in the database which is nice.</p>
 <pre><code class="language-bash">DECLARE @Sql NVARCHAR(500) DECLARE @Cursor CURSOR
 
@@ -2290,7 +2319,8 @@ GO
 
 Go to CKEditor Builder.
 Click download after you ......]]></summary>
-        <content type="html"><![CDATA[<h2>Introduction</h2>
+        <content type="html"><![CDATA[<p><img src="https://ckeditor.com/assets/images/og/ogimage-ck4-1ea514a336.png" alt="coverimage"></p>
+<h2>Introduction</h2>
 <p>I was trying out different rich text editors for web, they all good but I found CKEditor 4 is the easiest to set up.</p>
 <h2>How to Implement</h2>
 <h3>Download</h3>
@@ -2333,7 +2363,8 @@ config.imgurClientId = 'Your-Client-id';
 The application structure is quiet simple:
 
 - Back-end: ......]]></summary>
-        <content type="html"><![CDATA[<h2>Introduction</h2>
+        <content type="html"><![CDATA[<p><img src="https://i0.wp.com/blog.knoldus.com/wp-content/uploads/2017/06/d3logo.png?fit=590%2C313&amp;ssl=1" alt="coverimage"></p>
+<h2>Introduction</h2>
 <p>D3.js it is a popular tool for Data Visualisation, I have spent a day to explore it and built a simple mind map application.</p>
 <p>The application structure is quiet simple:</p>
 <ul>
@@ -2400,7 +2431,8 @@ The application structure is quiet simple:
         <summary type="html"><![CDATA[This website(Sporule) is built by using Flask and Flask-SqlAlchemy (an Object Relational Mapping tool) which maps all the model classes to the database.
 
 Any changes in the model class will need ......]]></summary>
-        <content type="html"><![CDATA[<h2>The Problem</h2>
+        <content type="html"><![CDATA[<p><img src="https://i.ytimg.com/vi/BAOfjPuVby0/maxresdefault.jpg" alt="coverimage"></p>
+<h2>The Problem</h2>
 <p>This website(Sporule) is built by using Flask and Flask-SqlAlchemy (an Object Relational Mapping tool) which maps all the model classes to the database.</p>
 <p>Any changes in the model class will need the change of the database. Even though it is possible, but it is time consuming.</p>
 <p>Flask-Migrate(flask-migrate.readthedocs.io) provided us an easy way to update our database after the changing of model classes, please be aware that you will still need to change the Flask-Migrate generated scripts if the models change is huge (such as database relationship change).</p>
@@ -2451,7 +2483,8 @@ $ flask db init
         <link href="https://www.sporule.com/items/pyenv-virtualenvs-pip-is-installing-in-global-site-packages-instead-of-virtualenv-pip-permission-issues"/>
         <updated>2018-09-12T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[I was having issue in my virtual environment that my PIP does not have permission to install packages because all the virtual environment packages were installed in the global site-packages ......]]></summary>
-        <content type="html"><![CDATA[<h2>The Problem</h2>
+        <content type="html"><![CDATA[<p><img src="https://zaxrosenberg.com/wp-content/uploads/2017/06/python-virtualenv.jpg" alt="coverimage"></p>
+<h2>The Problem</h2>
 <p>I was having issue in my virtual environment that my PIP does not have permission to install packages because all the virtual environment packages were installed in the global site-packages rather than the virtualenv's site-packages. I think the issue was caused by using sudo to install the virutal environemnt which changed the System Environment Variable.</p>
 <h2>The Solution</h2>
 <p>After some research on Google, I have found a few solutions:</p>
@@ -2477,7 +2510,8 @@ $ flask db init
         <summary type="html"><![CDATA[MongoDB is one of the common NOSQL databases to use, however it does not have a stable ODM to support Golang.
 
 It means we need to use the MgoV2 (mongodb driver) ......]]></summary>
-        <content type="html"><![CDATA[<h2>Introduction</h2>
+        <content type="html"><![CDATA[<p><img src="https://hackernoon.com/hn-images/1*WpUuwCQZWhVzP3X0Gibaqw.png" alt="coverimage"></p>
+<h2>Introduction</h2>
 <p>MongoDB is one of the common NOSQL databases to use, however it does not have a stable ODM to support Golang.</p>
 <p>It means we need to use the MgoV2 (mongodb driver) to create our own implementation.</p>
 <h2>Implementation</h2>
