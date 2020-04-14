@@ -15,11 +15,15 @@ if (navigator.userAgent.includes('Googlebot')){
     store.dispatch(PostAction.loadPosts());
 }
 else if ('serviceWorker' in navigator) {
+    alert("ios 1")
     // Check that service workers are supported
     window.addEventListener('load', () => {
+        alert("ios 2")
         // Use the window load event to keep the page load performant
         navigator.serviceWorker.register('/sw.js').then(reg => {
+            alert("ios 3")
             reg.addEventListener('updatefound', () => {
+                alert("ios 4")
                 let insworker = reg.installing;
                 insworker.addEventListener('statechange', () => {
                     if (insworker.state == 'installed') {
@@ -33,7 +37,6 @@ else if ('serviceWorker' in navigator) {
     });
 }
 
-store.dispatch(PostAction.loadPosts());
 
 
 
