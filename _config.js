@@ -10,7 +10,7 @@ const Config = {
     email: "hao@sporule.com",
     language:'en',
     internalLinkNames: ["sporule"],
-    googleAnaltics: "",
+    googleAnaltics: "UA-114032457-1",
     alwaysRefreshPost: false,
     gh_custom_domain: true
 
