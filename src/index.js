@@ -10,19 +10,16 @@ import "./styles/styles.css";
 
 export const { store, persistor } = configureStore(initialState);
 
-if (navigator.userAgent.includes('Googlebot')) {
+if (navigator.userAgent.includes('Googlebot')){
     console.log("not using service worker because this is google bot");
+    store.dispatch(PostAction.loadPosts());
 }
 else if ('serviceWorker' in navigator) {
-    alert("ios 1")
     // Check that service workers are supported
     window.addEventListener('load', () => {
-        alert("ios 2")
         // Use the window load event to keep the page load performant
         navigator.serviceWorker.register('/sw.js').then(reg => {
-            alert("ios 3")
             reg.addEventListener('updatefound', () => {
-                alert("ios 4")
                 let insworker = reg.installing;
                 insworker.addEventListener('statechange', () => {
                     if (insworker.state == 'installed') {
@@ -43,10 +40,6 @@ setTimeout(() => {
         store.dispatch(PostAction.loadPosts());
     }
 }, 1000)
-
-
-
-
 
 
 render(
