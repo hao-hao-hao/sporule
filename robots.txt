@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://www.sporule.com/sitemap.xml
 Host: https://www.sporule.com
