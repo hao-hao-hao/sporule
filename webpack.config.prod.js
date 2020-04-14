@@ -8,11 +8,11 @@ const TerserJSPlugin = require('terser-webpack-plugin');
 const RobotstxtPlugin = require("robotstxt-webpack-plugin");
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const SitemapPlugin = require('sitemap-webpack-plugin').default;
 const Config = require("./_config");
 const MarkdownRSSGeneratorPlugin = require("markdown-rss-generator-webpack-plugin").default;
 const MarkdownToJS = require("markdown-to-js-webpack-plugin").default;
-const {GenerateSW} = require('workbox-webpack-plugin');
+const MarkdownSiteMapGeneratorPlugin = require("markdown-sitemap-generator-webpack-plugin").default;
+const { GenerateSW } = require('workbox-webpack-plugin');
 
 module.exports = {
   mode: "production",
@@ -22,9 +22,6 @@ module.exports = {
   ],
   mode: "production",
   target: 'web',
-  externals: {
-    "jquery": "jQuery"
-  },
   output: {
     path: __dirname + '/dist',
     publicPath: '/',
@@ -36,6 +33,15 @@ module.exports = {
   optimization: {
     minimize:false,
     minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
+    }
   },
   node: {
     fs: 'empty'
@@ -95,24 +101,27 @@ module.exports = {
         }
       ]
     ),
-    new SitemapPlugin(Config.url, [
-      "/"
-    ]),
+    new MarkdownSiteMapGeneratorPlugin({
+      host: Config.url,
+      links: [],
+      route: "/items",
+      outputPath: "sitemap.txt"
+    }),
     new MarkdownRSSGeneratorPlugin({
       title: Config.site,
       outputPath: "rss.xml", //rss file output path
       description: Config.description,
       link: Config.url,
-      language: "en",
-      image: "https://i.imgur.com/vfh3Une.png",
-      favicon: "https://i.imgur.com/vfh3Une.png",
-      copyright: "All rights reserved 2019, Sporule",
+      language: Config.language,
+      image: Config.logo,
+      favicon: Config.logo,
+      copyright: "All rights reserved " + new Date().getFullYear() + " " + Config.site,
       updated: new Date(), //updated date
       generator: "Sporule",
       author: {
-        name: "Sporule",
-        email: "hao@sporule.com",
-        link: "https://www.sporule.com"
+        name: Config.site,
+        email: Config.email,
+        link: Config.url
       },
     }),
     new MarkdownToJS(),
@@ -123,7 +132,7 @@ module.exports = {
           allow: "/"
         }
       ],
-      sitemap: Config.url + "/sitemap.xml",
+      sitemap: Config.url + "/sitemap.txt",
       host: Config.url
     }),
     new CleanWebpackPlugin(),
@@ -132,21 +141,23 @@ module.exports = {
       templateParameters: Config
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
       filename: "[name].[contenthash].css",
       chunkFilename: "[id].css"
     }),
+    new MarkdownToJS(),
     new GenerateSW({
-      maximumFileSizeToCacheInBytes:1e+7,
-      skipWaiting:true,
+      maximumFileSizeToCacheInBytes: 1e+7,
+      skipWaiting: true,
       runtimeCaching: [{
         urlPattern: new RegExp('/\.(js|css)$/i'),
         handler: 'StaleWhileRevalidate'
       }],
-      exclude: [/\.(md|png|jpe?g|gif|xml|toml|txt|gz)$/i,/CNAME/i],
-      swDest:'sw.js'
+      exclude: [/\.(md|png|jpe?g|gif|xml|toml|txt|gz)$/i, /CNAME/i],
+      swDest: 'sw.js'
     }),
     new WebpackPwaManifest({
       name: Config.site,

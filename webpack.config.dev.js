@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const path = require('path');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// var OfflinePlugin = require('offline-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Config = require("./_config");
@@ -12,8 +11,6 @@ const {GenerateSW} = require('workbox-webpack-plugin');
 
 
 process.env.NODE_ENV = "development";
-
-
 module.exports = {
   mode: process.env.NODE_ENV,
   devtool: 'inline-source-map',
@@ -22,9 +19,6 @@ module.exports = {
     path.resolve(__dirname, 'src/index')
   ],
   target: 'web',
-  externals: {
-    "jquery": "jQuery"
-  },
   output: {
     path: __dirname + '/dist',
     publicPath: '/',
@@ -81,11 +75,11 @@ module.exports = {
   plugins: [
     new CopyPlugin(
       [
-        // {
-        //   context: __dirname + '/src',
-        //   from: '_redirects',
-        //   to: '',
-        // },
+        {
+          context: __dirname + '/src',
+          from: 'netlify.toml',
+          to: '',
+        },
         {
           context: __dirname + "/posts",
           from: 'images/**/*',
@@ -129,7 +123,7 @@ module.exports = {
         urlPattern: new RegExp('/\.(js|css)$/i'),
         handler: 'StaleWhileRevalidate'
       }],
-      exclude: [/\.(md|png|jpe?g|gif|xml|toml|txt|gz)$/i,/CNAME/i],
+      exclude: [/\.(md|png|jpe?g|gif|xml|toml|txt|gz)$/i,/CNAME/i,/md\.js/i],
       swDest:'sw.js'
     }),
     new WebpackPwaManifest({
