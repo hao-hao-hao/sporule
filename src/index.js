@@ -21,7 +21,7 @@ if ('serviceWorker' in navigator) {
                 insworker.addEventListener('statechange', () => {
                     if (insworker.state == 'installed') {
                         //reload window or show ui for refreshing the app
-                        store.dispatch(PostAction.loadPosts());
+                        //store.dispatch(PostAction.loadPosts());
                         // window.location.reload();
                     }
                 });
