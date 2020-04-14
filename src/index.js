@@ -33,6 +33,7 @@ else if ('serviceWorker' in navigator) {
     });
 }
 
+store.dispatch(PostAction.loadPosts());
 
 
 
