@@ -4,7 +4,7 @@ const Config = {
     url: "https://www.sporule.com",
     description: "Sporule is a micro blog site",
     keywords: "micro blog",
-    logo: "https://i.imgur.com/1UDpSHj.png",
+    logo: "https://svgshare.com/i/K5L.svg",
     disqusShortname: "sporule",
     postPerPage: 8,
     email: "hao@sporule.com",

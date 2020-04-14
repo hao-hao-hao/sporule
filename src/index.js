@@ -12,6 +12,7 @@ export const { store, persistor } = configureStore(initialState);
 
 if (navigator.userAgent.includes('Googlebot')){
     console.log("not using service worker because this is google bot");
+    store.dispatch(PostAction.loadPosts());
 }
 else if ('serviceWorker' in navigator) {
     // Check that service workers are supported
