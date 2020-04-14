@@ -10,18 +10,20 @@ import "./styles/styles.css";
 
 export const { store, persistor } = configureStore(initialState);
 
-
-// Check that service workers are supported
-if ('serviceWorker' in navigator) {
-    // Use the window load event to keep the page load performant
+if (navigator.userAgent.includes('Googlebot')){
+    console.log("not using service worker because this is google bot");
+}
+else if ('serviceWorker' in navigator) {
+    // Check that service workers are supported
     window.addEventListener('load', () => {
+        // Use the window load event to keep the page load performant
         navigator.serviceWorker.register('/sw.js').then(reg => {
             reg.addEventListener('updatefound', () => {
                 let insworker = reg.installing;
                 insworker.addEventListener('statechange', () => {
                     if (insworker.state == 'installed') {
                         //reload window or show ui for refreshing the app
-                        //store.dispatch(PostAction.loadPosts());
+                        store.dispatch(PostAction.loadPosts());
                         // window.location.reload();
                     }
                 });
