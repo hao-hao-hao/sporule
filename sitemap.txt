@@ -2,7 +2,6 @@ https://www.sporule.com
 https://www.sporule.com/categories/big%20data
 https://www.sporule.com/categories/code
 https://www.sporule.com/categories/machine%20learning
-https://www.sporule.com/categories/demo
 https://www.sporule.com/categories/notes
 https://www.sporule.com/categories/design%20pattern
 https://www.sporule.com/items/hive-unable-to-instantiate-metastore-client
@@ -12,7 +11,6 @@ https://www.sporule.com/items/build-an-amazon-alexa-skills-in-10-minutes-and-get
 https://www.sporule.com/items/released-first-version-of-sporule-blog-system
 https://www.sporule.com/items/released-first-version-of-markdown-handler
 https://www.sporule.com/items/generate-vocabulary-and-tokenises-sequences-by-using-keras
-https://www.sporule.com/items/Lorem_Ipsum_usage
 https://www.sporule.com/items/use-apache-mxnet-deep-learning-framework-on-kaggle-s-free-gpu
 https://www.sporule.com/items/using-pyenv-and-virtualenv-in-linux--and-install-jupyter-lab
 https://www.sporule.com/items/manually-set-storage-folder-for-android-apps-that-run-in-archon-chrome
@@ -26,8 +24,8 @@ https://www.sporule.com/items/iterator-pattern-access-the-items-in-aggregate-obe
 https://www.sporule.com/items/template-pattern-template-for-processes-algorithms-with-flexibility
 https://www.sporule.com/items/facade-pattern-decouples-the-client-and-the-components-on-top-of-adapter-pattern
 https://www.sporule.com/items/adapter-pattern-connects-two-existing-components-together-without-touching-them
-https://www.sporule.com/items/command-pattern-encapsulates-actions-as-object
 https://www.sporule.com/items/singleton-pattern-global-access-to-only-one-instance-when-is-needed
+https://www.sporule.com/items/command-pattern-encapsulates-actions-as-object
 https://www.sporule.com/items/fun-fact-of-slice-in-golang
 https://www.sporule.com/items/factory-pattern-do-not-depend-on-concrete-implementations
 https://www.sporule.com/items/decorator-pattern-add-behaviour-to-existing-functions
