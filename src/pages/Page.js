@@ -7,8 +7,8 @@ import * as PostHelper from "../helpers/postHelper";
 import { Helmet } from "react-helmet";
 import Config from "../../_config";
 import CustomPages from "../../template/customPages";
-import { CircleArrow as ScrollUpButton } from "react-scroll-up-button";
-import {withRouter} from 'react-router'
+import { withRouter } from 'react-router'
+import * as Utility from "../helpers/utility";
 
 class Page extends React.Component {
     constructor(props, context) {
@@ -68,6 +68,20 @@ class Page extends React.Component {
         this.props.history.push(link);
     }
 
+    searchAction = (search_route) => {
+        event.preventDefault();
+        for (var i = 0; i <= 50; i++) {
+            if (event.target[i].name == "search") {
+                this.props.history.push(search_route + "&search=" + event.target[i].value);
+                break;
+            }
+        }
+    }
+
+    componentDidUpdate() {
+        Utility.scrollToTop();
+    }
+
     render() {
         // get parameters
         const categoriesString = this.props.match.params.categories;
@@ -87,13 +101,6 @@ class Page extends React.Component {
         else {
             const pinnedPosts = PostHelper.getPinnedPosts(this.props.posts);
             const posts = PostHelper.getPostsByPage(this.props.posts, this.page, true, this.searchString, this.categories, this.tags, this.excludedTags);
-            if ((posts.items.length <= 0 && this.props.posts.items.length > 0) || posts.invalidPage) {
-                if (!window.location.origin.includes('webcache')) {
-                    //reset filters if there is no posts
-                    window.location.href = Config.url;
-                    return null;
-                }
-            }
             var prev;
             var next;
             if (posts.hasPrevPage) {
@@ -111,8 +118,7 @@ class Page extends React.Component {
                     <Helmet>
                         <title>{Config.site} - {Page.title}</title>
                     </Helmet>
-                    <div><ScrollUpButton /></div>
-                    <Page.component posts={posts} categories={this.categories} tags={this.tags} exTags={this.excludedTags} prev={prev} next={next} pinned={pinnedPosts} />
+                    <Page.component posts={posts} categories={this.categories} tags={this.tags} exTags={this.excludedTags} prev={prev} next={next} pinned={pinnedPosts} searchAction={this.searchAction}/>
                 </React.Fragment>
             )
         }

@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import Config from "../../_config";
 import analytics from 'universal-ga';
 import AddToHomeScreen from "a2hs.js";
-
+import { withRouter } from 'react-router';
+import { CircleArrow as ScrollUpButton } from "react-scroll-up-button";
 
 class Nav extends React.Component {
     constructor(props, context) {
@@ -23,8 +24,19 @@ class Nav extends React.Component {
         });
     }
 
+    searchAction = (search_route) => {
+        event.preventDefault();
+        for (var i = 0; i <= 50; i++) {
+            if (event.target[i].name == "search") {
+                this.props.history.push(search_route + "&search=" + event.target[i].value);
+                break;
+            }
+        }
+    }
+
     render() {
-        return <NavTemplate categories={this.props.posts.categories} />
+        <div><ScrollUpButton /></div>
+        return <NavTemplate searchAction={this.searchAction} categories={this.props.posts.categories} />
     }
 }
 
@@ -41,4 +53,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Nav);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Nav));
