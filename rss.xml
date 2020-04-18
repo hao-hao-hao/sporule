@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sporule.com/</id>
     <title>Sporule</title>
-    <updated>2020-04-18T15:19:04.541Z</updated>
+    <updated>2020-04-18T16:45:13.862Z</updated>
     <generator>Sporule</generator>
     <author>
         <name>Sporule</name>
@@ -18,6 +18,248 @@
         <title type="html"><![CDATA[RELEASE HADOOP CLUSTER IN DOCKER]]></title>
         <id>https://www.sporule.com/items/release-hadoop-cluster-in-docker</id>
         <link href="https://www.sporule.com/items/release-hadoop-cluster-in-docker"/>
+        <updated>2020-04-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[After going through so many erros such as Spark errors and Hive errors, finally I managed to get it working.
+
+This is the Hadoop image based on the BDE's Hadoop Base ......]]></summary>
+        <content type="html"><![CDATA[<p><img src="https://mapr.com/products/apache-hadoop/assets/hadoop-logo.png" alt="coverimage"></p>
+<h1>Big Data Cluster</h1>
+<p>After going through so many erros such as <a href="https://www.sporule.com/items/spark-on-yarn-error-failed-to-send-rpc">Spark errors</a> and <a href="https://www.sporule.com/items/hive-unable-to-instantiate-metastore-client">Hive errors</a>, finally I managed to get it working.</p>
+<p>This is the Hadoop image based on the <a href="https://github.com/big-data-europe/docker-hadoop">BDE's Hadoop Base</a> and its relevant forks.</p>
+<p>The repo for the <a href="https://github.com/sporule/big-data-cluster">Big Data Cluster in Git</a>, <a href="https://hub.docker.com/repository/docker/sporule/big-data-cluster">Big Data Cluster in Docker Hub</a></p>
+<h2>Changes</h2>
+<ul>
+<li>18/04/2020: Updated Readme documentation</li>
+<li>10/04/2020: Added Dev Node with Airflow</li>
+<li>02/04/2020: Added Master Node and Worker Node with Hive</li>
+</ul>
+<h2>Quick Start</h2>
+<h3>Run the whole cluster</h3>
+<pre><code class="language-bash">docker-compose up -d
+</code></pre>
+<h3>Run Individual Contaier</h3>
+<p>You can run individual container by using Docker command, please find more information and tutorial on Docker website. Please remember to pass environment variables to the Docker command. You can find the relevant environment variables in the <em>docker-compose.yml</em> file.</p>
+<h2>What is included</h2>
+<h3>Components</h3>
+<table>
+<thead>
+<tr>
+<th>Components</th>
+<th>Version</th>
+<th>Included</th>
+<th>Container</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Apache Accumulo</td>
+<td>1.7.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Apache Atlas</td>
+<td>1.1.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Apache Calcite</td>
+<td>1.16.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Apache DataFu</td>
+<td>1.3.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Apache Druid</td>
+<td>0.12.1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Apache Hadoop</td>
+<td>3.1.1</td>
+<td>Y</td>
+<td>Master,Worker,Dev</td>
+</tr>
+<tr>
+<td>Apache HBase</td>
+<td>2.0.2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Apache Hive</td>
+<td>3.1.0</td>
+<td>Y</td>
+<td>Master,Worker,Dev</td>
+</tr>
+<tr>
+<td>Apache Kafka</td>
+<td>2.0.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Apache Knox</td>
+<td>1.0.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Apache Livy</td>
+<td>0.5.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Apache Oozie</td>
+<td>4.3.1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Apache Phoenix</td>
+<td>5.0.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Apache Pig</td>
+<td>0.16.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Apache Ranger</td>
+<td>1.2.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Apache Spark</td>
+<td>2.3.2</td>
+<td>Y</td>
+<td>Dev</td>
+</tr>
+<tr>
+<td>Apache Sqoop</td>
+<td>1.4.7</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Apache Storm</td>
+<td>1.2.1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Apache TEZ</td>
+<td>0.9.1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Apache Zeppelin</td>
+<td>0.8.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Apache ZooKeeper</td>
+<td>3.4.6</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Apache Airflow</td>
+<td>latest</td>
+<td>Y</td>
+<td>Dev</td>
+</tr>
+</tbody>
+</table>
+<h3>Containers in Docker-Compose</h3>
+<table>
+<thead>
+<tr>
+<th>Nodes</th>
+<th>Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Master</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Worker</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Hive-metastore</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Dev</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>You can flexibly change the amount of worker nodes and dev nodes, they will connect with master node automatically</p>
+</blockquote>
+<h2>Configurations</h2>
+<h3>Hadoop and Hive Basic Configuration</h3>
+<p>The configuration parameters can be specified in the <strong>hadoop.env</strong> file or as environmental variables for specific services (e.g. master-node, worker-node etc.):</p>
+<pre><code>  CORE_CONF_fs_defaultFS=hdfs://master-node:8020
+</code></pre>
+<p>CORE_CONF corresponds to core-site.xml. fs_defaultFS=hdfs://master-node:8020 will be transformed into:</p>
+<pre><code>  &lt;property&gt;&lt;name&gt;fs.defaultFS&lt;/name&gt;&lt;value&gt;hdfs://master-node:8020&lt;/value&gt;&lt;/property&gt;
+</code></pre>
+<p>To define dash inside a configuration parameter, use triple underscore, such as YARN_CONF_yarn_log___aggregation___enable=true (yarn-site.xml):</p>
+<pre><code>  &lt;property&gt;&lt;name&gt;yarn.log-aggregation-enable&lt;/name&gt;&lt;value&gt;true&lt;/value&gt;&lt;/property&gt;
+</code></pre>
+<p>The available configurations are:</p>
+<ul>
+<li>/etc/hadoop/core-site.xml CORE_CONF</li>
+<li>/etc/hadoop/hdfs-site.xml HDFS_CONF</li>
+<li>/etc/hadoop/yarn-site.xml YARN_CONF</li>
+<li>/etc/hadoop/httpfs-site.xml HTTPFS_CONF</li>
+<li>/etc/hadoop/kms-site.xml KMS_CONF</li>
+<li>/etc/hadoop/mapred-site.xml  MAPRED_CONF</li>
+<li>/opt/hive/conf/hive-site.xml HIVE_SITE_CONF</li>
+</ul>
+<h3>Application On or Off Configuration</h3>
+<p>You can turn on or off some applications by using environment variables, <strong>0</strong> means on and <strong>1</strong> means off. You can update the environment variable in the <strong>hadoop.env</strong> file or inject it while starting the containers (through Docker command or docker-compose.yml). However, it is good to note that <strong>hadoop.env</strong> will have lower priority. current supported applications are:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Environment Variable</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Airflow</td>
+<td>AIRFLOW</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[RELEASE HADOOP CLUSTER IN DOCKER TEST]]></title>
+        <id>https://www.sporule.com/items/release-hadoop-cluster-in-docker-test</id>
+        <link href="https://www.sporule.com/items/release-hadoop-cluster-in-docker-test"/>
         <updated>2020-04-18T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[After going through so many erros such as Spark errors and Hive errors, finally I managed to get it working.
 
@@ -1252,36 +1494,6 @@ It share the similar concept as React, which uses ......]]></summary>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[EXOPLAYER SOURCE ERROR ON ANDROID 8 AND ABOVE]]></title>
-        <id>https://www.sporule.com/items/exoplayer-source-error-on-android-8-and-above</id>
-        <link href="https://www.sporule.com/items/exoplayer-source-error-on-android-8-and-above"/>
-        <updated>2019-07-12T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[EXOPlayer is an open source video player for mobile.
-Yesterday I was trying to use EXOPlayer in my Pixel but it couldn't stream video (m3u8) by using EXOPlayer.
-
-The error message is ......]]></summary>
-        <content type="html"><![CDATA[<p><img src="https://miro.medium.com/max/3092/1*oxK1gF5zFP9z9_9qFDOKlQ.png" alt="coverimage"></p>
-<h2>The Problem</h2>
-<p>EXOPlayer is  an open source video player for mobile.
-Yesterday I was trying to use EXOPlayer in my Pixel but it couldn't stream video (m3u8) by using EXOPlayer.</p>
-<p>The error message is not very clear: &quot;Source Error, can't connect to http://xxxxxxxx&quot;</p>
-<p>I was very confused as I am pretty sure the url I passed in is working OK.</p>
-<h2>The Cause</h2>
-<p>I spent 20 minutes trying to resolve the issue, finally I found a small hidden error message in the console says &quot;Cleartext HTTP traffic not permitted&quot;.</p>
-<p>The new error message is very clear, the solution is simply add android:usesCleartextTraffic=&quot;true&quot; into the mainfest:</p>
-<pre><code class="language-javascript"> &lt;application
-        android:allowBackup=&quot;true&quot;
-        android:icon=&quot;@mipmap/ic_launcher&quot;
-        android:label=&quot;xxxxxx&quot;
-        android:supportsRtl=&quot;true&quot;
-        android:theme=&quot;@style/AppTheme&quot;
-        android:usesCleartextTraffic=&quot;true&quot;&gt;
-</code></pre>
-<p>Works perfectly fine after adding the usesClearText, you will need to add this for Android 8.0 and above.</p>
-<p>Please note that you should not use clear text traffic if the informatin you are trying to send is confidential.</p>
-]]></content>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[MODULE PARSE FAILED UNEXPECTED CHARACTER'' ERROR WHEN USING WEBPACK FOR FONTAWSOME FROM ONSENUI]]></title>
         <id>https://www.sporule.com/items/module-parse-failed-unexpected-character-error-when-using-webpack-for-fontawsome-from-onsenui</id>
         <link href="https://www.sporule.com/items/module-parse-failed-unexpected-character-error-when-using-webpack-for-fontawsome-from-onsenui"/>
@@ -1312,6 +1524,36 @@ However the woff file name is actually fontawesome-webfont.woff?v=4.7.0, it cont
 test: /.(woff|woff2|eot|ttf|svg)(?.*$|$)/,
 loader: 'file?name=assets/[name].[ext]'
 }</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[EXOPLAYER SOURCE ERROR ON ANDROID 8 AND ABOVE]]></title>
+        <id>https://www.sporule.com/items/exoplayer-source-error-on-android-8-and-above</id>
+        <link href="https://www.sporule.com/items/exoplayer-source-error-on-android-8-and-above"/>
+        <updated>2019-07-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[EXOPlayer is an open source video player for mobile.
+Yesterday I was trying to use EXOPlayer in my Pixel but it couldn't stream video (m3u8) by using EXOPlayer.
+
+The error message is ......]]></summary>
+        <content type="html"><![CDATA[<p><img src="https://miro.medium.com/max/3092/1*oxK1gF5zFP9z9_9qFDOKlQ.png" alt="coverimage"></p>
+<h2>The Problem</h2>
+<p>EXOPlayer is  an open source video player for mobile.
+Yesterday I was trying to use EXOPlayer in my Pixel but it couldn't stream video (m3u8) by using EXOPlayer.</p>
+<p>The error message is not very clear: &quot;Source Error, can't connect to http://xxxxxxxx&quot;</p>
+<p>I was very confused as I am pretty sure the url I passed in is working OK.</p>
+<h2>The Cause</h2>
+<p>I spent 20 minutes trying to resolve the issue, finally I found a small hidden error message in the console says &quot;Cleartext HTTP traffic not permitted&quot;.</p>
+<p>The new error message is very clear, the solution is simply add android:usesCleartextTraffic=&quot;true&quot; into the mainfest:</p>
+<pre><code class="language-javascript"> &lt;application
+        android:allowBackup=&quot;true&quot;
+        android:icon=&quot;@mipmap/ic_launcher&quot;
+        android:label=&quot;xxxxxx&quot;
+        android:supportsRtl=&quot;true&quot;
+        android:theme=&quot;@style/AppTheme&quot;
+        android:usesCleartextTraffic=&quot;true&quot;&gt;
+</code></pre>
+<p>Works perfectly fine after adding the usesClearText, you will need to add this for Android 8.0 and above.</p>
+<p>Please note that you should not use clear text traffic if the informatin you are trying to send is confidential.</p>
 ]]></content>
     </entry>
     <entry>
