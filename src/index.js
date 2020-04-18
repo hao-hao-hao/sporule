@@ -24,7 +24,6 @@ else if ('serviceWorker' in navigator) {
                 let insworker = reg.installing;
                 insworker.addEventListener('statechange', () => {
                     if (insworker.state == 'installed') {
-                        console.log("insworker installed");
                         //reload window or show ui for refreshing the app
                         store.dispatch(PostAction.loadPosts());
                         // window.location.reload();
