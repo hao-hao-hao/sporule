@@ -9,6 +9,8 @@ coverImage: "https://mapr.com/products/apache-hadoop/assets/hadoop-logo.png"
 
 # Big Data Cluster
 
+After going through so many erros such as [Spark errors](https://www.sporule.com/items/spark-on-yarn-error-failed-to-send-rpc) and [Hive errors](https://www.sporule.com/items/hive-unable-to-instantiate-metastore-client), finally I managed to get it working.
+
 This is the Hadoop image based on the [BDE's Hadoop Base](https://github.com/big-data-europe/docker-hadoop) and its relevant forks.
 
 The repo for the [Big Data Cluster in Git](https://github.com/sporule/big-data-cluster), [Big Data Cluster in Docker Hub](https://hub.docker.com/repository/docker/sporule/big-data-cluster)

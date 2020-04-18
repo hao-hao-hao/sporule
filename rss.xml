@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sporule.com/</id>
     <title>Sporule</title>
-    <updated>2020-04-18T15:12:27.710Z</updated>
+    <updated>2020-04-18T15:17:39.936Z</updated>
     <generator>Sporule</generator>
     <author>
         <name>Sporule</name>
@@ -19,15 +19,12 @@
         <id>https://www.sporule.com/items/release-hadoop-cluster-in-docker</id>
         <link href="https://www.sporule.com/items/release-hadoop-cluster-in-docker"/>
         <updated>2020-04-18T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[This is the Hadoop image based on the BDE's Hadoop Base and its relevant forks.
+        <summary type="html"><![CDATA[After going through so many erros such as Spark errors and Hive errors, finally I managed to get it working.
 
-The repo for the Big Data Cluster in Git, Big Data Cluster in Docker Hub
-
-
-
-- 18/04/2020: ......]]></summary>
+This is the Hadoop image based on the BDE's Hadoop Base ......]]></summary>
         <content type="html"><![CDATA[<p><img src="https://mapr.com/products/apache-hadoop/assets/hadoop-logo.png" alt="coverimage"></p>
 <h1>Big Data Cluster</h1>
+<p>After going through so many erros such as <a href="https://www.sporule.com/items/spark-on-yarn-error-failed-to-send-rpc">Spark errors</a> and <a href="https://www.sporule.com/items/hive-unable-to-instantiate-metastore-client">Hive errors</a>, finally I managed to get it working.</p>
 <p>This is the Hadoop image based on the <a href="https://github.com/big-data-europe/docker-hadoop">BDE's Hadoop Base</a> and its relevant forks.</p>
 <p>The repo for the <a href="https://github.com/sporule/big-data-cluster">Big Data Cluster in Git</a>, <a href="https://hub.docker.com/repository/docker/sporule/big-data-cluster">Big Data Cluster in Docker Hub</a></p>
 <h2>Changes</h2>
