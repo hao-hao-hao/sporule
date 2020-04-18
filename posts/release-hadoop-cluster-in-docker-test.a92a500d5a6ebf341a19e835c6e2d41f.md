@@ -1,5 +1,5 @@
 ---
-title: "Release Hadoop Cluster in Docker Test"
+title: "Release Hadoop Cluster in Docker Test ABC"
 author: "Sporule"
 date: "2020-04-18"
 categories: "big data"

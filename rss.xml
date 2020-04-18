@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sporule.com/</id>
     <title>Sporule</title>
-    <updated>2020-04-18T16:52:16.535Z</updated>
+    <updated>2020-04-18T16:53:51.446Z</updated>
     <generator>Sporule</generator>
     <author>
         <name>Sporule</name>
@@ -257,7 +257,7 @@ This is the Hadoop image based on the BDE's Hadoop Base ......]]></summary>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[RELEASE HADOOP CLUSTER IN DOCKER TEST]]></title>
+        <title type="html"><![CDATA[RELEASE HADOOP CLUSTER IN DOCKER TEST ABC]]></title>
         <id>https://www.sporule.com/items/release-hadoop-cluster-in-docker-test</id>
         <link href="https://www.sporule.com/items/release-hadoop-cluster-in-docker-test"/>
         <updated>2020-04-18T00:00:00.000Z</updated>
