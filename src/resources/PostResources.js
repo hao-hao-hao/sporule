@@ -13,6 +13,7 @@ export default class PostResources {
     }
 
     getAll(paths = this.defaultPaths) {
+        console.log("loading new posts");
         let mdHandler = new MarkdownHandler();
         return mdHandler.loadMds(paths).then(posts => {
             posts.categories = PostHelper.getCategories(posts);
