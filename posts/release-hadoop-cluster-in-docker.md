@@ -1,5 +1,5 @@
 ---
-title: "Building Hadoop Cluster in Docker"
+title: "Release Hadoop Cluster in Docker"
 author: "Sporule"
 date: "2020-04-18"
 categories: "big data"
