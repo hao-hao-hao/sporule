@@ -31,7 +31,6 @@ module.exports = {
     contentBase: path.resolve(__dirname, 'dist')
   },
   optimization: {
-    minimize:false,
     minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
     splitChunks: {
       cacheGroups: {
