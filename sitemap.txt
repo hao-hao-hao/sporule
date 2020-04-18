@@ -4,6 +4,7 @@ https://www.sporule.com/categories/code
 https://www.sporule.com/categories/machine%20learning
 https://www.sporule.com/categories/notes
 https://www.sporule.com/categories/design%20pattern
+https://www.sporule.com/items/release-hadoop-cluster-in-docker
 https://www.sporule.com/items/hive-unable-to-instantiate-metastore-client
 https://www.sporule.com/items/spark-on-yarn-error-failed-to-send-rpc
 https://www.sporule.com/items/define-output-column-in-flask-sqlalchemy
@@ -24,8 +25,8 @@ https://www.sporule.com/items/iterator-pattern-access-the-items-in-aggregate-obe
 https://www.sporule.com/items/template-pattern-template-for-processes-algorithms-with-flexibility
 https://www.sporule.com/items/facade-pattern-decouples-the-client-and-the-components-on-top-of-adapter-pattern
 https://www.sporule.com/items/adapter-pattern-connects-two-existing-components-together-without-touching-them
-https://www.sporule.com/items/singleton-pattern-global-access-to-only-one-instance-when-is-needed
 https://www.sporule.com/items/command-pattern-encapsulates-actions-as-object
+https://www.sporule.com/items/singleton-pattern-global-access-to-only-one-instance-when-is-needed
 https://www.sporule.com/items/fun-fact-of-slice-in-golang
 https://www.sporule.com/items/factory-pattern-do-not-depend-on-concrete-implementations
 https://www.sporule.com/items/decorator-pattern-add-behaviour-to-existing-functions
