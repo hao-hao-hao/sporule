@@ -1,93 +1,108 @@
 ---
-title: "Deploy Hadoop Cluster Through Docker"
+title: "Building Hadoop Cluster in Docker"
 author: "Sporule"
-date: ""
-categories: ""
-tags: ""
-coverImage:""
+date: "2020-04-18"
+categories: "big data"
+tags: "hadoop,hive,spark,airflow"
+coverImage: "https://mapr.com/products/apache-hadoop/assets/hadoop-logo.png"
 ---
 
-## Components
+# Big Data Cluster
 
-| Components       | Version | Included |
-| ---------------- | ------- | -------- |
-| Apache Accumulo  | 1.7.0   |          |
-| Apache Atlas     | 1.1.0   |          |
-| Apache Calcite   | 1.16.0  |          |
-| Apache DataFu    | 1.3.0   |          |
-| Apache Druid     | 0.12.1  |          |
-| Apache Hadoop    | 3.1.1   | Y        |
-| Apache HBase     | 2.0.2   |          |
-| Apache Hive      | 3.1.0   | Y        |
-| Apache Kafka     | 2.0.0   |          |
-| Apache Knox      | 1.0.0   |          |
-| Apache Livy      | 0.5.0   |          |
-| Apache Oozie     | 4.3.1   |          |
-| Apache Phoenix   | 5.0.0   |          |
-| Apache Pig       | 0.16.0  |          |
-| Apache Ranger    | 1.2.0   |          |
-| Apache Spark     | 2.3.2   | Y        |
-| Apache Sqoop     | 1.4.7   |          |
-| Apache Storm     | 1.2.1   |          |
-| Apache TEZ       | 0.9.1   |          |
-| Apache Zeppelin  | 0.8.0   |          |
-| Apache ZooKeeper | 3.4.6   |          |
+This is the Hadoop image based on the [BDE's Hadoop Base](https://github.com/big-data-europe/docker-hadoop) and its relevant forks.
 
-## Containers
+The repo for the [Big Data Cluster in Git](https://github.com/sporule/big-data-cluster), [Big Data Cluster in Docker Hub](https://hub.docker.com/repository/docker/sporule/big-data-cluster)
 
-| Nodes                  | Amount |
-| ---------------------- | ------ |
-| Name Node              | 1      |
-| Resources Manager Node | 1      |
-| History Node           | 1      |
-| Data Node              | 2      |
-| Node Manager           | 2      |
+## Changes
 
-## Tools Installation
+- 18/04/2020: Updated Readme documentation
+- 10/04/2020: Added Dev Node with Airflow
+- 02/04/2020: Added Master Node and Worker Node with Hive
 
-### Docker
+## Quick Start
 
-[The Official Guide](https://docs.docker.com/install/linux/docker-ce/debian/#install-using-the-convenience-script)
+### Run the whole cluster
 
-``` bash
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
-
-<output truncated>
-```
-
-### Docker Compose
-
-[The Official Guide](https://docs.docker.com/compose/install/#install-compose-on-linux-systems)
-
-``` bash
-sudo apt install curl
-sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-```
-
-### Git
-
-``` bash
-sudo apt install git
-```
-
-## Setup Hadoop
-
-Get latest docker codes for Hadoop from [Big Data Europe - Hadoop](https://github.com/big-data-europe/docker-hadoop)
-
-``` bash
-git clone https://github.com/big-data-europe/docker-hadoop
-```
-
-Follow the guide in the github page to spin up the hadoop cluster, it will spin up Hadoop with nodes by using **docker-compose.yml** file
-
-``` bash
-docker-compose up
-```
-
-``` bash
-# daemon mode
+```bash
 docker-compose up -d
 ```
 
+### Run Individual Contaier
+
+You can run individual container by using Docker command, please find more information and tutorial on Docker website. Please remember to pass environment variables to the Docker command. You can find the relevant environment variables in the *docker-compose.yml* file.
+
+
+## What is included
+
+
+### Components
+
+| Components       | Version | Included | Container         |
+| ---------------- | ------- | -------- | ----------------- |
+| Apache Accumulo  | 1.7.0   |          |                   |
+| Apache Atlas     | 1.1.0   |          |                   |
+| Apache Calcite   | 1.16.0  |          |                   |
+| Apache DataFu    | 1.3.0   |          |                   |
+| Apache Druid     | 0.12.1  |          |                   |
+| Apache Hadoop    | 3.1.1   | Y        | Master,Worker,Dev |
+| Apache HBase     | 2.0.2   |          |                   |
+| Apache Hive      | 3.1.0   | Y        | Master,Worker,Dev |
+| Apache Kafka     | 2.0.0   |          |                   |
+| Apache Knox      | 1.0.0   |          |                   |
+| Apache Livy      | 0.5.0   |          |                   |
+| Apache Oozie     | 4.3.1   |          |                   |
+| Apache Phoenix   | 5.0.0   |          |                   |
+| Apache Pig       | 0.16.0  |          |                   |
+| Apache Ranger    | 1.2.0   |          |                   |
+| Apache Spark     | 2.3.2   | Y        | Dev               |
+| Apache Sqoop     | 1.4.7   |          |                   |
+| Apache Storm     | 1.2.1   |          |                   |
+| Apache TEZ       | 0.9.1   |          |                   |
+| Apache Zeppelin  | 0.8.0   |          |                   |
+| Apache ZooKeeper | 3.4.6   |          |                   |
+| Apache Airflow   | latest  | Y        | Dev               |
+
+### Containers in Docker-Compose
+
+| Nodes          | Amount |
+| -------------- | ------ |
+| Master         | 1      |
+| Worker         | 2      |
+| Hive-metastore | 1      |
+| Dev            | 1      |
+
+> You can flexibly change the amount of worker nodes and dev nodes, they will connect with master node automatically
+
+## Configurations
+
+### Hadoop and Hive Basic Configuration 
+The configuration parameters can be specified in the **hadoop.env** file or as environmental variables for specific services (e.g. master-node, worker-node etc.):
+```
+  CORE_CONF_fs_defaultFS=hdfs://master-node:8020
+```
+
+CORE_CONF corresponds to core-site.xml. fs_defaultFS=hdfs://master-node:8020 will be transformed into:
+```
+  <property><name>fs.defaultFS</name><value>hdfs://master-node:8020</value></property>
+```
+To define dash inside a configuration parameter, use triple underscore, such as YARN_CONF_yarn_log___aggregation___enable=true (yarn-site.xml):
+```
+  <property><name>yarn.log-aggregation-enable</name><value>true</value></property>
+```
+
+The available configurations are:
+* /etc/hadoop/core-site.xml CORE_CONF
+* /etc/hadoop/hdfs-site.xml HDFS_CONF
+* /etc/hadoop/yarn-site.xml YARN_CONF
+* /etc/hadoop/httpfs-site.xml HTTPFS_CONF
+* /etc/hadoop/kms-site.xml KMS_CONF
+* /etc/hadoop/mapred-site.xml  MAPRED_CONF
+* /opt/hive/conf/hive-site.xml HIVE_SITE_CONF
+  
+### Application On or Off Configuration
+
+You can turn on or off some applications by using environment variables, **0** means on and **1** means off. You can update the environment variable in the **hadoop.env** file or inject it while starting the containers (through Docker command or docker-compose.yml). However, it is good to note that **hadoop.env** will have lower priority. current supported applications are:
+
+| Name    | Environment Variable | Default |
+| ------- | -------------------- | ------- |
+| Airflow | AIRFLOW              | 0       |
