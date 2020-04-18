@@ -9,7 +9,7 @@ const Config = {
     postPerPage: 8,
     email: "hao@sporule.com",
     language:'en',
-    internalLinkNames: ["sporule"],
+    internalLinkNames: ["sporule.com"],
     googleAnaltics: "UA-114032457-1",
     alwaysRefreshPost: false,
     gh_custom_domain: true
