@@ -156,7 +156,7 @@ module.exports = {
         urlPattern: new RegExp('/\.(js|css)$/i'),
         handler: 'StaleWhileRevalidate'
       }],
-      exclude: [/\.(md|png|jpe?g|gif|xml|toml|txt|gz)$/i, /CNAME/i],
+      exclude: [/\.(md|png|jpe?g|gif|xml|toml|txt|gz)$/i, /CNAME/i,/md\.js/i],
       swDest: 'sw.js'
     }),
     new WebpackPwaManifest({
