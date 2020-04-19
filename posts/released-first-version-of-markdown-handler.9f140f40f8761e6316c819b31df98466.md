@@ -1,5 +1,5 @@
 ---
-title: "Release of the first version of Markdown-Handler"
+title: "Release the first version of Markdown-Handler"
 author: "Sporule"
 date: "2019-09-22"
 categories: "code"

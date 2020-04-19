@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sporule.com/</id>
     <title>Sporule</title>
-    <updated>2020-04-19T11:02:56.087Z</updated>
+    <updated>2020-04-19T11:18:22.269Z</updated>
     <generator>Sporule</generator>
     <author>
         <name>Sporule</name>
@@ -618,7 +618,7 @@ In my scenario, I can say:</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[RELEASE OF THE FIRST VERSION OF SPORULE BLOGGING SYSTEM]]></title>
+        <title type="html"><![CDATA[RELEASE THE FIRST VERSION OF SPORULE BLOGGING SYSTEM]]></title>
         <id>https://www.sporule.com/items/released-first-version-of-sporule-blog-system</id>
         <link href="https://www.sporule.com/items/released-first-version-of-sporule-blog-system"/>
         <updated>2019-10-05T00:00:00.000Z</updated>
@@ -766,7 +766,7 @@ In my scenario, I can say:</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[RELEASE OF THE FIRST VERSION OF MARKDOWN-HANDLER]]></title>
+        <title type="html"><![CDATA[RELEASE THE FIRST VERSION OF MARKDOWN-HANDLER]]></title>
         <id>https://www.sporule.com/items/released-first-version-of-markdown-handler</id>
         <link href="https://www.sporule.com/items/released-first-version-of-markdown-handler"/>
         <updated>2019-09-22T00:00:00.000Z</updated>
