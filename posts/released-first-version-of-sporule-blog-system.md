@@ -1,5 +1,5 @@
 ---
-title: "Release of the first version of Sporule Blogging System"
+title: "Release the first version of Sporule Blogging System"
 author: "Sporule"
 date: "2019-10-05"
 categories: "code"
