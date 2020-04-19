@@ -4,6 +4,7 @@ author: "Sporule"
 date: "2019-09-22"
 categories: "code"
 tags: "npm,javascript,es6,markdown"
+pinned: 1
 coverimage: "https://i.imgur.com/xkhBTzk.png"
 ---
 
