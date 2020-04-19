@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sporule.com/</id>
     <title>Sporule</title>
-    <updated>2020-04-18T17:34:54.615Z</updated>
+    <updated>2020-04-19T10:30:57.434Z</updated>
     <generator>Sporule</generator>
     <author>
         <name>Sporule</name>
@@ -10,7 +10,7 @@
         <uri>https://www.sporule.com</uri>
     </author>
     <link rel="alternate" href="https://www.sporule.com/"/>
-    <subtitle>Sporule is a micro blog site</subtitle>
+    <subtitle>Sporule is a technical blog site, powered by SPORULE blog system</subtitle>
     <logo>https://i.imgur.com/vfh3Une.png</logo>
     <icon>https://i.imgur.com/vfh3Une.png</icon>
     <rights>All rights reserved 2019, Sporule</rights>

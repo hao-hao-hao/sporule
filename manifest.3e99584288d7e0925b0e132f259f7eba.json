@@ -71,7 +71,7 @@
   "orientation": "any",
   "display": "standalone",
   "start_url": ".",
-  "description": "Sporule is a micro blog site",
+  "description": "Sporule is a technical blog site, powered by SPORULE blog system",
   "background_color": "#ffffff",
   "theme_color": "#3367D6"
 }
