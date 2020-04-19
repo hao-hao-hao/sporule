@@ -128,6 +128,7 @@ module.exports = {
       policy: [
         {
           userAgent: "*",
+          disallow:"/404/",
           allow: "/"
         }
       ],
