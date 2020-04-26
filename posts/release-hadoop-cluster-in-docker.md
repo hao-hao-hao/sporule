@@ -3,23 +3,17 @@ title: "Release Hadoop Cluster in Docker"
 author: "Sporule"
 date: "2020-04-18"
 categories: "big data"
+pinned: 1
 tags: "hadoop,hive,spark,airflow"
 coverImage: "https://mapr.com/products/apache-hadoop/assets/hadoop-logo.png"
 ---
 
-# Big Data Cluster
 
 After going through so many erros such as [Spark errors](https://www.sporule.com/items/spark-on-yarn-error-failed-to-send-rpc) and [Hive errors](https://www.sporule.com/items/hive-unable-to-instantiate-metastore-client), finally I managed to get it working.
 
 This is the Hadoop image based on the [BDE's Hadoop Base](https://github.com/big-data-europe/docker-hadoop) and its relevant forks.
 
-The repo for the [Big Data Cluster in Git](https://github.com/sporule/big-data-cluster), [Big Data Cluster in Docker Hub](https://hub.docker.com/repository/docker/sporule/big-data-cluster)
-
-## Changes
-
-- 18/04/2020: Updated Readme documentation
-- 10/04/2020: Added Dev Node with Airflow
-- 02/04/2020: Added Master Node and Worker Node with Hive
+You can find the latest documentation on [Big Data Cluster in Git](https://github.com/sporule/big-data-cluster), [Big Data Cluster in Docker Hub](https://hub.docker.com/repository/docker/sporule/big-data-cluster)
 
 ## Quick Start
 
@@ -34,37 +28,7 @@ docker-compose up -d
 You can run individual container by using Docker command, please find more information and tutorial on Docker website. Please remember to pass environment variables to the Docker command. You can find the relevant environment variables in the *docker-compose.yml* file.
 
 
-## What is included
-
-
-### Components
-
-| Components       | Version | Included | Container         |
-| ---------------- | ------- | -------- | ----------------- |
-| Apache Accumulo  | 1.7.0   |          |                   |
-| Apache Atlas     | 1.1.0   |          |                   |
-| Apache Calcite   | 1.16.0  |          |                   |
-| Apache DataFu    | 1.3.0   |          |                   |
-| Apache Druid     | 0.12.1  |          |                   |
-| Apache Hadoop    | 3.1.1   | Y        | Master,Worker,Dev |
-| Apache HBase     | 2.0.2   |          |                   |
-| Apache Hive      | 3.1.0   | Y        | Master,Worker,Dev |
-| Apache Kafka     | 2.0.0   |          |                   |
-| Apache Knox      | 1.0.0   |          |                   |
-| Apache Livy      | 0.5.0   |          |                   |
-| Apache Oozie     | 4.3.1   |          |                   |
-| Apache Phoenix   | 5.0.0   |          |                   |
-| Apache Pig       | 0.16.0  |          |                   |
-| Apache Ranger    | 1.2.0   |          |                   |
-| Apache Spark     | 2.3.2   | Y        | Dev               |
-| Apache Sqoop     | 1.4.7   |          |                   |
-| Apache Storm     | 1.2.1   |          |                   |
-| Apache TEZ       | 0.9.1   |          |                   |
-| Apache Zeppelin  | 0.8.0   |          |                   |
-| Apache ZooKeeper | 3.4.6   |          |                   |
-| Apache Airflow   | latest  | Y        | Dev               |
-
-### Containers in Docker-Compose
+## Containers in Docker-Compose
 
 | Nodes          | Amount |
 | -------------- | ------ |
@@ -103,8 +67,4 @@ The available configurations are:
   
 ### Application On or Off Configuration
 
-You can turn on or off some applications by using environment variables, **0** means on and **1** means off. You can update the environment variable in the **hadoop.env** file or inject it while starting the containers (through Docker command or docker-compose.yml). However, it is good to note that **hadoop.env** will have lower priority. current supported applications are:
-
-| Name    | Environment Variable | Default |
-| ------- | -------------------- | ------- |
-| Airflow | AIRFLOW              | 0       |
+You can turn on or off some applications by using environment variables, **0** means on and **1** means off. You can update the environment variable in the **hadoop.env** file or inject it while starting the containers (through Docker command or docker-compose.yml). However, it is good to note that **hadoop.env** will have lower priority.
