@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sporule.com/</id>
     <title>Sporule</title>
-    <updated>2020-04-26T19:02:03.447Z</updated>
+    <updated>2020-04-26T19:03:26.627Z</updated>
     <generator>Sporule</generator>
     <author>
         <name>Sporule</name>
@@ -20,7 +20,7 @@
         <link href="https://www.sporule.com/items/docker-image-exec-user-process-caused-exec-format-error"/>
         <updated>2020-04-26T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[I built a linux dev box docker image with some necessary run time environments such as go and python, but it didn't run and raised the error message exec user ......]]></summary>
-        <content type="html"><![CDATA[<p><img src="https://i.imgur.com/GzmpA4s.png" alt="coverimage"></p>
+        <content type="html"><![CDATA[<p><img src="https://i.imgur.com/YpGscYR.png" alt="coverimage"></p>
 <h2>The Problem</h2>
 <p>I built a linux <a href="https://github.com/hao-hao-hao/dev-box">dev box docker image</a> with some necessary run time environments such as go and python, but it didn't run and raised the error message <strong>exec user process caused &quot;exec format error&quot;</strong>.</p>
 <h2>The Cause</h2>

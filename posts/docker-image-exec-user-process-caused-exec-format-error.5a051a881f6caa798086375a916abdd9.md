@@ -4,6 +4,7 @@ author: "Sporule"
 date: "2020-04-26"
 categories: "docker"
 tags: "docker,bash,error,shebang"
+coverImage: "https://i.imgur.com/YpGscYR.png"
 ---
 
 ## The Problem
