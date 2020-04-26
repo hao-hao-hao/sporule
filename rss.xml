@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sporule.com/</id>
     <title>Sporule</title>
-    <updated>2020-04-26T19:03:26.627Z</updated>
+    <updated>2020-04-26T19:11:42.531Z</updated>
     <generator>Sporule</generator>
     <author>
         <name>Sporule</name>
@@ -15,7 +15,7 @@
     <icon>https://i.imgur.com/vfh3Une.png</icon>
     <rights>All rights reserved 2019, Sporule</rights>
     <entry>
-        <title type="html"><![CDATA['DOCKER IMAGE - EXEC USER PROCESS CAUSED EXEC FORMAT ERROR']]></title>
+        <title type="html"><![CDATA[DOCKER IMAGE - EXEC USER PROCESS CAUSED EXEC FORMAT ERROR]]></title>
         <id>https://www.sporule.com/items/docker-image-exec-user-process-caused-exec-format-error</id>
         <link href="https://www.sporule.com/items/docker-image-exec-user-process-caused-exec-format-error"/>
         <updated>2020-04-26T00:00:00.000Z</updated>
