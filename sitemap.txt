@@ -4,6 +4,7 @@ https://www.sporule.com/categories/code
 https://www.sporule.com/categories/machine%20learning
 https://www.sporule.com/categories/notes
 https://www.sporule.com/categories/design%20pattern
+https://www.sporule.com/categories/docker
 https://www.sporule.com/items/release-hadoop-cluster-in-docker
 https://www.sporule.com/items/hive-unable-to-instantiate-metastore-client
 https://www.sporule.com/items/spark-on-yarn-error-failed-to-send-rpc
@@ -17,16 +18,17 @@ https://www.sporule.com/items/using-pyenv-and-virtualenv-in-linux--and-install-j
 https://www.sporule.com/items/manually-set-storage-folder-for-android-apps-that-run-in-archon-chrome
 https://www.sporule.com/items/solutions-for-cross-origin-request-security-cors--in-pwa-progressive-web-apps
 https://www.sporule.com/items/flutter-how-to-show-message-in-ui-after-receving-web-responses
-https://www.sporule.com/items/exoplayer-source-error-on-android-8-and-above
 https://www.sporule.com/items/module-parse-failed-unexpected-character-error-when-using-webpack-for-fontawsome-from-onsenui
+https://www.sporule.com/items/exoplayer-source-error-on-android-8-and-above
 https://www.sporule.com/items/state-pattern-control-the-behaviours-by-using-states
 https://www.sporule.com/items/composite-pattern-consistent-representation-of-each-item-in-hierarchy-structure
 https://www.sporule.com/items/iterator-pattern-access-the-items-in-aggregate-obejcts-without-knowing-the-underlying-of-the-objects
+https://www.sporule.com/items/docker-image-exec-user-process-caused-exec-format-error
 https://www.sporule.com/items/template-pattern-template-for-processes-algorithms-with-flexibility
 https://www.sporule.com/items/facade-pattern-decouples-the-client-and-the-components-on-top-of-adapter-pattern
 https://www.sporule.com/items/adapter-pattern-connects-two-existing-components-together-without-touching-them
-https://www.sporule.com/items/command-pattern-encapsulates-actions-as-object
 https://www.sporule.com/items/singleton-pattern-global-access-to-only-one-instance-when-is-needed
+https://www.sporule.com/items/command-pattern-encapsulates-actions-as-object
 https://www.sporule.com/items/fun-fact-of-slice-in-golang
 https://www.sporule.com/items/factory-pattern-do-not-depend-on-concrete-implementations
 https://www.sporule.com/items/decorator-pattern-add-behaviour-to-existing-functions
