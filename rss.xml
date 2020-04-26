@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sporule.com/</id>
     <title>Sporule</title>
-    <updated>2020-04-26T18:52:27.155Z</updated>
+    <updated>2020-04-26T19:02:03.447Z</updated>
     <generator>Sporule</generator>
     <author>
         <name>Sporule</name>
@@ -14,6 +14,44 @@
     <logo>https://i.imgur.com/vfh3Une.png</logo>
     <icon>https://i.imgur.com/vfh3Une.png</icon>
     <rights>All rights reserved 2019, Sporule</rights>
+    <entry>
+        <title type="html"><![CDATA['DOCKER IMAGE - EXEC USER PROCESS CAUSED EXEC FORMAT ERROR']]></title>
+        <id>https://www.sporule.com/items/docker-image-exec-user-process-caused-exec-format-error</id>
+        <link href="https://www.sporule.com/items/docker-image-exec-user-process-caused-exec-format-error"/>
+        <updated>2020-04-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[I built a linux dev box docker image with some necessary run time environments such as go and python, but it didn't run and raised the error message exec user ......]]></summary>
+        <content type="html"><![CDATA[<p><img src="https://i.imgur.com/GzmpA4s.png" alt="coverimage"></p>
+<h2>The Problem</h2>
+<p>I built a linux <a href="https://github.com/hao-hao-hao/dev-box">dev box docker image</a> with some necessary run time environments such as go and python, but it didn't run and raised the error message <strong>exec user process caused &quot;exec format error&quot;</strong>.</p>
+<h2>The Cause</h2>
+<p>I spent more than an hour to find the solution as nothing looks wrong for me. I have tried different docker image build options but no luck.
+At the end, I was removing differnt parts of the Dockerfile to identify the problem.</p>
+<p>Finally I discovered the error message disappeared after I passing commands directly rather than using the <strong>run.sh</strong> in the DockerFile.</p>
+<p>So the problem is actually from the <strong>run.sh</strong> file, and I forgot to put the <a href="https://en.wikipedia.org/wiki/Shebang_(Unix)">shebang</a>.</p>
+<h2>The Solution</h2>
+<p>Put the bash shebang at the beginning of the file and the problem is resolved, so simple.</p>
+<blockquote>
+<p>Old &quot;run.sh&quot;:</p>
+</blockquote>
+<pre><code class="language-bash"># Start SSH
+service ssh restart &amp;&amp; bash
+
+tail -f /dev/null
+</code></pre>
+<blockquote>
+<p>New &quot;run.sh&quot;:</p>
+</blockquote>
+<pre><code class="language-bash">
+#!/bin/bash
+
+# Start SSH
+service ssh restart &amp;&amp; bash
+
+tail -f /dev/null
+
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[RELEASE HADOOP CLUSTER IN DOCKER]]></title>
         <id>https://www.sporule.com/items/release-hadoop-cluster-in-docker</id>
@@ -1083,6 +1121,36 @@ It share the similar concept as React, which uses ......]]></summary>
 ]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[EXOPLAYER SOURCE ERROR ON ANDROID 8 AND ABOVE]]></title>
+        <id>https://www.sporule.com/items/exoplayer-source-error-on-android-8-and-above</id>
+        <link href="https://www.sporule.com/items/exoplayer-source-error-on-android-8-and-above"/>
+        <updated>2019-07-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[EXOPlayer is an open source video player for mobile.
+Yesterday I was trying to use EXOPlayer in my Pixel but it couldn't stream video (m3u8) by using EXOPlayer.
+
+The error message is ......]]></summary>
+        <content type="html"><![CDATA[<p><img src="https://miro.medium.com/max/3092/1*oxK1gF5zFP9z9_9qFDOKlQ.png" alt="coverimage"></p>
+<h2>The Problem</h2>
+<p>EXOPlayer is  an open source video player for mobile.
+Yesterday I was trying to use EXOPlayer in my Pixel but it couldn't stream video (m3u8) by using EXOPlayer.</p>
+<p>The error message is not very clear: &quot;Source Error, can't connect to http://xxxxxxxx&quot;</p>
+<p>I was very confused as I am pretty sure the url I passed in is working OK.</p>
+<h2>The Cause</h2>
+<p>I spent 20 minutes trying to resolve the issue, finally I found a small hidden error message in the console says &quot;Cleartext HTTP traffic not permitted&quot;.</p>
+<p>The new error message is very clear, the solution is simply add android:usesCleartextTraffic=&quot;true&quot; into the mainfest:</p>
+<pre><code class="language-javascript"> &lt;application
+        android:allowBackup=&quot;true&quot;
+        android:icon=&quot;@mipmap/ic_launcher&quot;
+        android:label=&quot;xxxxxx&quot;
+        android:supportsRtl=&quot;true&quot;
+        android:theme=&quot;@style/AppTheme&quot;
+        android:usesCleartextTraffic=&quot;true&quot;&gt;
+</code></pre>
+<p>Works perfectly fine after adding the usesClearText, you will need to add this for Android 8.0 and above.</p>
+<p>Please note that you should not use clear text traffic if the informatin you are trying to send is confidential.</p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[MODULE PARSE FAILED UNEXPECTED CHARACTER'' ERROR WHEN USING WEBPACK FOR FONTAWSOME FROM ONSENUI]]></title>
         <id>https://www.sporule.com/items/module-parse-failed-unexpected-character-error-when-using-webpack-for-fontawsome-from-onsenui</id>
         <link href="https://www.sporule.com/items/module-parse-failed-unexpected-character-error-when-using-webpack-for-fontawsome-from-onsenui"/>
@@ -1113,36 +1181,6 @@ However the woff file name is actually fontawesome-webfont.woff?v=4.7.0, it cont
 test: /.(woff|woff2|eot|ttf|svg)(?.*$|$)/,
 loader: 'file?name=assets/[name].[ext]'
 }</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[EXOPLAYER SOURCE ERROR ON ANDROID 8 AND ABOVE]]></title>
-        <id>https://www.sporule.com/items/exoplayer-source-error-on-android-8-and-above</id>
-        <link href="https://www.sporule.com/items/exoplayer-source-error-on-android-8-and-above"/>
-        <updated>2019-07-12T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[EXOPlayer is an open source video player for mobile.
-Yesterday I was trying to use EXOPlayer in my Pixel but it couldn't stream video (m3u8) by using EXOPlayer.
-
-The error message is ......]]></summary>
-        <content type="html"><![CDATA[<p><img src="https://miro.medium.com/max/3092/1*oxK1gF5zFP9z9_9qFDOKlQ.png" alt="coverimage"></p>
-<h2>The Problem</h2>
-<p>EXOPlayer is  an open source video player for mobile.
-Yesterday I was trying to use EXOPlayer in my Pixel but it couldn't stream video (m3u8) by using EXOPlayer.</p>
-<p>The error message is not very clear: &quot;Source Error, can't connect to http://xxxxxxxx&quot;</p>
-<p>I was very confused as I am pretty sure the url I passed in is working OK.</p>
-<h2>The Cause</h2>
-<p>I spent 20 minutes trying to resolve the issue, finally I found a small hidden error message in the console says &quot;Cleartext HTTP traffic not permitted&quot;.</p>
-<p>The new error message is very clear, the solution is simply add android:usesCleartextTraffic=&quot;true&quot; into the mainfest:</p>
-<pre><code class="language-javascript"> &lt;application
-        android:allowBackup=&quot;true&quot;
-        android:icon=&quot;@mipmap/ic_launcher&quot;
-        android:label=&quot;xxxxxx&quot;
-        android:supportsRtl=&quot;true&quot;
-        android:theme=&quot;@style/AppTheme&quot;
-        android:usesCleartextTraffic=&quot;true&quot;&gt;
-</code></pre>
-<p>Works perfectly fine after adding the usesClearText, you will need to add this for Android 8.0 and above.</p>
-<p>Please note that you should not use clear text traffic if the informatin you are trying to send is confidential.</p>
 ]]></content>
     </entry>
     <entry>
@@ -1433,44 +1471,6 @@ Helper.PrintAllNames(teachersIterator)
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA['DOCKER IMAGE - EXEC USER PROCESS CAUSED EXEC FORMAT ERROR']]></title>
-        <id>https://www.sporule.com/items/docker-image-exec-user-process-caused-exec-format-error</id>
-        <link href="https://www.sporule.com/items/docker-image-exec-user-process-caused-exec-format-error"/>
-        <updated>2019-04-26T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[I built a linux dev box docker image with some necessary run time environments such as go and python, but it didn't run and raised the error message exec user ......]]></summary>
-        <content type="html"><![CDATA[<p><img src="https://i.imgur.com/GzmpA4s.png" alt="coverimage"></p>
-<h2>The Problem</h2>
-<p>I built a linux <a href="https://github.com/hao-hao-hao/dev-box">dev box docker image</a> with some necessary run time environments such as go and python, but it didn't run and raised the error message <strong>exec user process caused &quot;exec format error&quot;</strong>.</p>
-<h2>The Cause</h2>
-<p>I spent more than an hour to find the solution as nothing looks wrong for me. I have tried different docker image build options but no luck.
-At the end, I was removing differnt parts of the Dockerfile to identify the problem.</p>
-<p>Finally I discovered the error message disappeared after I passing commands directly rather than using the <strong>run.sh</strong> in the DockerFile.</p>
-<p>So the problem is actually from the <strong>run.sh</strong> file, and I forgot to put the <a href="https://en.wikipedia.org/wiki/Shebang_(Unix)">shebang</a>.</p>
-<h2>The Solution</h2>
-<p>Put the bash shebang at the beginning of the file and the problem is resolved, so simple.</p>
-<blockquote>
-<p>Old &quot;run.sh&quot;:</p>
-</blockquote>
-<pre><code class="language-bash"># Start SSH
-service ssh restart &amp;&amp; bash
-
-tail -f /dev/null
-</code></pre>
-<blockquote>
-<p>New &quot;run.sh&quot;:</p>
-</blockquote>
-<pre><code class="language-bash">
-#!/bin/bash
-
-# Start SSH
-service ssh restart &amp;&amp; bash
-
-tail -f /dev/null
-
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[TEMPLATE PATTERN - TEMPLATE FOR PROCESSES/ALGORITHMS WITH FLEXIBILITY]]></title>
         <id>https://www.sporule.com/items/template-pattern-template-for-processes-algorithms-with-flexibility</id>
         <link href="https://www.sporule.com/items/template-pattern-template-for-processes-algorithms-with-flexibility"/>
@@ -1691,73 +1691,6 @@ control.SwitchOnTV() #output ABC TV is on.
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[SINGLETON PATTERN - GLOBAL ACCESS TO ONLY ONE INSTANCE WHEN IS NEEDED]]></title>
-        <id>https://www.sporule.com/items/singleton-pattern-global-access-to-only-one-instance-when-is-needed</id>
-        <link href="https://www.sporule.com/items/singleton-pattern-global-access-to-only-one-instance-when-is-needed"/>
-        <updated>2019-02-23T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Singleton Pattern is making sure that only one instance of the class can be created. Normally it is to make sure the data integrity. For example if you have two ......]]></summary>
-        <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/Hao-Luo/DesignPattern/master/SingletonPattern/SingletonPattern.png" alt="coverimage"></p>
-<h2>What is Singleton Pattern</h2>
-<p>Singleton Pattern is making sure that only one instance of the class can be created. Normally it is to make sure the data integrity. For example if you have two connections that connects to the database at the same time, then it may raise the conflict. Another example will be Caching, ideally we should only have 1 Cache for the system unless we have a valid reason to do it.</p>
-<p>Singleton and Global Variable is very differnt, the main difference I found is Singleton is a lazy loading of Global variables. Global variables needs to be initated when starting the application, but Singleton will be initiated in the first usage.</p>
-<h2>Singleton Pattern Implementation</h2>
-<p>Below is a simple example of Cache Implementation.</p>
-<p>Please do not use the below implmenetation for production in python, please use metaclass to implement Singleton in Python.</p>
-<p>The reason that I came up with this implementation is to show an implementation that could apply to other languages.</p>
-<p>We only have 1 class here which is Cache:</p>
-<pre><code class="language-python">class Cache():
-    _instance = None
-    content = &quot;&quot;
-
-    @staticmethod
-    def GetInstance():
-        if Cache._instance is None:
-            Cache._instance = Cache()
-        return Cache._instance
-        
-    def Add(self,content):
-        #Assign Value to the content
-        self.content = content
-        print(self.content + &quot; is added to the cache&quot;)
-    
-    def Get(self):
-        #Print the content
-        print(&quot;The content is: &quot;+self.content)
-</code></pre>
-<p>In Python there is no static class concept, the class itself is kind of an instance, so I have put below test code to run:</p>
-<pre><code class="language-python">from models import Cache
-
-#create normal instance
-cache_a = Cache()
-cache_a.Add(&quot;Hello&quot;)
-
-#Singleton
-cache_s1 = Cache.GetInstance()
-cache_s1.Add(&quot;This is Cache S1&quot;)
-
-#Create another instance to check if this is the same instance as s1
-cache_s2 = Cache.GetInstance()
-
-#Testing the instance
-cache_a.Get()
-#output The content is: Hello
-cache_s1.Get()
-#output The content is: This is Cache S1
-cache_s2.Get()
-#output The content is: This is Cache S1
-</code></pre>
-<p>As you can see here, cache_a is a new instance of the Cache which it is own its own. So it prints &quot;Hello&quot; which is different compare to cache_s1 and cache_s2.</p>
-<p>cache_s1 and cache_s2 are using the same instance, so they both print &quot;thi is cache s1&quot;.</p>
-<h3>Diagram</h3>
-<p>There is no class diagram for Singleton as there is only one class. I have attached a kind of &quot;process&quot; diagram</p>
-<p><img src="https://raw.githubusercontent.com/Hao-Luo/DesignPattern/master/SingletonPattern/SingletonPattern.png" alt="Singleton Pattern"></p>
-<h2>Example Code</h2>
-<p><a href="https://github.com/Hao-Luo/DesignPattern/tree/master/SingletonPattern">Singleton Pattern Example</a></p>
-<h2>Credit</h2>
-<p>&lt;&lt; Head First Design Patterns &gt;&gt;</p>
-]]></content>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[COMMAND PATTERN - ENCAPSULATES ACTIONS AS OBJECT]]></title>
         <id>https://www.sporule.com/items/command-pattern-encapsulates-actions-as-object</id>
         <link href="https://www.sporule.com/items/command-pattern-encapsulates-actions-as-object"/>
@@ -1849,6 +1782,73 @@ Running - Name: CleanFilesCommand 2 / Command: CleanFilesCommand.
 <p><img src="https://raw.githubusercontent.com/Hao-Luo/DesignPattern/master/CommandPattern/CommandPattern.png" alt="Command Pattern"></p>
 <h2>Example Code:</h2>
 <p><a href="https://github.com/Hao-Luo/DesignPattern/tree/master/CommandPattern">Command Pattern Example</a></p>
+<h2>Credit</h2>
+<p>&lt;&lt; Head First Design Patterns &gt;&gt;</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[SINGLETON PATTERN - GLOBAL ACCESS TO ONLY ONE INSTANCE WHEN IS NEEDED]]></title>
+        <id>https://www.sporule.com/items/singleton-pattern-global-access-to-only-one-instance-when-is-needed</id>
+        <link href="https://www.sporule.com/items/singleton-pattern-global-access-to-only-one-instance-when-is-needed"/>
+        <updated>2019-02-23T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Singleton Pattern is making sure that only one instance of the class can be created. Normally it is to make sure the data integrity. For example if you have two ......]]></summary>
+        <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/Hao-Luo/DesignPattern/master/SingletonPattern/SingletonPattern.png" alt="coverimage"></p>
+<h2>What is Singleton Pattern</h2>
+<p>Singleton Pattern is making sure that only one instance of the class can be created. Normally it is to make sure the data integrity. For example if you have two connections that connects to the database at the same time, then it may raise the conflict. Another example will be Caching, ideally we should only have 1 Cache for the system unless we have a valid reason to do it.</p>
+<p>Singleton and Global Variable is very differnt, the main difference I found is Singleton is a lazy loading of Global variables. Global variables needs to be initated when starting the application, but Singleton will be initiated in the first usage.</p>
+<h2>Singleton Pattern Implementation</h2>
+<p>Below is a simple example of Cache Implementation.</p>
+<p>Please do not use the below implmenetation for production in python, please use metaclass to implement Singleton in Python.</p>
+<p>The reason that I came up with this implementation is to show an implementation that could apply to other languages.</p>
+<p>We only have 1 class here which is Cache:</p>
+<pre><code class="language-python">class Cache():
+    _instance = None
+    content = &quot;&quot;
+
+    @staticmethod
+    def GetInstance():
+        if Cache._instance is None:
+            Cache._instance = Cache()
+        return Cache._instance
+        
+    def Add(self,content):
+        #Assign Value to the content
+        self.content = content
+        print(self.content + &quot; is added to the cache&quot;)
+    
+    def Get(self):
+        #Print the content
+        print(&quot;The content is: &quot;+self.content)
+</code></pre>
+<p>In Python there is no static class concept, the class itself is kind of an instance, so I have put below test code to run:</p>
+<pre><code class="language-python">from models import Cache
+
+#create normal instance
+cache_a = Cache()
+cache_a.Add(&quot;Hello&quot;)
+
+#Singleton
+cache_s1 = Cache.GetInstance()
+cache_s1.Add(&quot;This is Cache S1&quot;)
+
+#Create another instance to check if this is the same instance as s1
+cache_s2 = Cache.GetInstance()
+
+#Testing the instance
+cache_a.Get()
+#output The content is: Hello
+cache_s1.Get()
+#output The content is: This is Cache S1
+cache_s2.Get()
+#output The content is: This is Cache S1
+</code></pre>
+<p>As you can see here, cache_a is a new instance of the Cache which it is own its own. So it prints &quot;Hello&quot; which is different compare to cache_s1 and cache_s2.</p>
+<p>cache_s1 and cache_s2 are using the same instance, so they both print &quot;thi is cache s1&quot;.</p>
+<h3>Diagram</h3>
+<p>There is no class diagram for Singleton as there is only one class. I have attached a kind of &quot;process&quot; diagram</p>
+<p><img src="https://raw.githubusercontent.com/Hao-Luo/DesignPattern/master/SingletonPattern/SingletonPattern.png" alt="Singleton Pattern"></p>
+<h2>Example Code</h2>
+<p><a href="https://github.com/Hao-Luo/DesignPattern/tree/master/SingletonPattern">Singleton Pattern Example</a></p>
 <h2>Credit</h2>
 <p>&lt;&lt; Head First Design Patterns &gt;&gt;</p>
 ]]></content>

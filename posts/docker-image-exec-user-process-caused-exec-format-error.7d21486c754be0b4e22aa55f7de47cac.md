@@ -1,7 +1,7 @@
 ---
 title: 'Docker Image - exec user process caused "exec format error"'
 author: "Sporule"
-date: "2019-04-26"
+date: "2020-04-26"
 categories: "docker"
 tags: "docker,bash,error,shebang"
 ---
