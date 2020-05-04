@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sporule.com/</id>
     <title>Sporule</title>
-    <updated>2020-04-26T19:11:42.531Z</updated>
+    <updated>2020-05-04T21:15:37.810Z</updated>
     <generator>Sporule</generator>
     <author>
         <name>Sporule</name>
@@ -14,6 +14,35 @@
     <logo>https://i.imgur.com/vfh3Une.png</logo>
     <icon>https://i.imgur.com/vfh3Une.png</icon>
     <rights>All rights reserved 2019, Sporule</rights>
+    <entry>
+        <title type="html"><![CDATA[HOW TO SECURE YOUR HADOOP DEVELOPMENT ENVIRONMENT TO AVOID HACKERS]]></title>
+        <id>https://www.sporule.com/items/how-to-secure-your-hadoop-development-environment-to-avoid-hackers</id>
+        <link href="https://www.sporule.com/items/how-to-secure-your-hadoop-development-environment-to-avoid-hackers"/>
+        <updated>2020-05-03T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[As you probably remember, I built a Hadoop development environment as docker image with most of default settings, including default ports and credentials. The post is here Release Hadoop Cluster ......]]></summary>
+        <content type="html"><![CDATA[<p><img src="https://i.imgur.com/3htUxaT.png" alt="coverimage"></p>
+<h2>The Issue</h2>
+<p>As you probably remember, I built a Hadoop development environment as docker image with most of default settings, including default ports and credentials. The post is here <a href="https://www.sporule.com/items/release-hadoop-cluster-in-docker">Release Hadoop Cluster In Docker</a>.</p>
+<p>As it is a development environment, especially is a docker environment, so I paid no attention to secure the environment. Recently, I noticed unusual jobs were submitted into my cluster (yarn) every minute. For example:</p>
+<p><img src="https://i.imgur.com/mGtPFLz.png" alt="hadoop-attack"></p>
+<p>By looking into the logs, it looks like the &quot;weird&quot; jobs are trying to use wget to download some sort of malware to control my nodes. Potentially for bitcoin mining, DDOS attack or something else.</p>
+<h2>Diagnose</h2>
+<ul>
+<li>I checked my docker build files, all files and applications are from the official sources. <strong>It is unlikely they will have malware inside my cluster</strong>.</li>
+<li>I turned off all the ports from the cluster, no further unusual jobs were detected. <strong>It means the jobs were submitted from outside (internet)</strong>.</li>
+<li>I turned on the 8088 ports from the resources manager node (yarn), the unusual jobs reappeared immediately. Then I turned off 8088 ports but open all other ports, the unusual jobs disappeared. <strong>It means the jobs were submitted to the  resources manager port 8088.</strong></li>
+<li>I have turned on all the ports but changed the domain name, the unusual jobs reappeared after few hours. <strong>It means the attach was using some kind of scanning mechanism rather than targeting my machine intentionally.</strong></li>
+</ul>
+<h2>Solution</h2>
+<p>As we are using the cluster as development environment, so we don't really want to spend much time on configuring the environment. Below there are two solutions that can help you quickly solve the issues.</p>
+<ul>
+<li>Changing the default ports to something else. As the attack is a scanning attack, it is unlikely the hacker will try all the ports of the machine due to the cost.</li>
+<li>Remove wget or curl software from your cluster. As the attack is running a bash script, they need to use wget, curl or other software to down the malware.</li>
+<li>Don't expose the cluster to internet if it is not necessary</li>
+</ul>
+<p>Obviously this won't defend all attacks in all scenarios, but it should be able to defend the scanning attacks.</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[DOCKER IMAGE - EXEC USER PROCESS CAUSED EXEC FORMAT ERROR]]></title>
         <id>https://www.sporule.com/items/docker-image-exec-user-process-caused-exec-format-error</id>
@@ -1691,6 +1720,73 @@ control.SwitchOnTV() #output ABC TV is on.
 ]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[SINGLETON PATTERN - GLOBAL ACCESS TO ONLY ONE INSTANCE WHEN IS NEEDED]]></title>
+        <id>https://www.sporule.com/items/singleton-pattern-global-access-to-only-one-instance-when-is-needed</id>
+        <link href="https://www.sporule.com/items/singleton-pattern-global-access-to-only-one-instance-when-is-needed"/>
+        <updated>2019-02-23T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Singleton Pattern is making sure that only one instance of the class can be created. Normally it is to make sure the data integrity. For example if you have two ......]]></summary>
+        <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/Hao-Luo/DesignPattern/master/SingletonPattern/SingletonPattern.png" alt="coverimage"></p>
+<h2>What is Singleton Pattern</h2>
+<p>Singleton Pattern is making sure that only one instance of the class can be created. Normally it is to make sure the data integrity. For example if you have two connections that connects to the database at the same time, then it may raise the conflict. Another example will be Caching, ideally we should only have 1 Cache for the system unless we have a valid reason to do it.</p>
+<p>Singleton and Global Variable is very differnt, the main difference I found is Singleton is a lazy loading of Global variables. Global variables needs to be initated when starting the application, but Singleton will be initiated in the first usage.</p>
+<h2>Singleton Pattern Implementation</h2>
+<p>Below is a simple example of Cache Implementation.</p>
+<p>Please do not use the below implmenetation for production in python, please use metaclass to implement Singleton in Python.</p>
+<p>The reason that I came up with this implementation is to show an implementation that could apply to other languages.</p>
+<p>We only have 1 class here which is Cache:</p>
+<pre><code class="language-python">class Cache():
+    _instance = None
+    content = &quot;&quot;
+
+    @staticmethod
+    def GetInstance():
+        if Cache._instance is None:
+            Cache._instance = Cache()
+        return Cache._instance
+        
+    def Add(self,content):
+        #Assign Value to the content
+        self.content = content
+        print(self.content + &quot; is added to the cache&quot;)
+    
+    def Get(self):
+        #Print the content
+        print(&quot;The content is: &quot;+self.content)
+</code></pre>
+<p>In Python there is no static class concept, the class itself is kind of an instance, so I have put below test code to run:</p>
+<pre><code class="language-python">from models import Cache
+
+#create normal instance
+cache_a = Cache()
+cache_a.Add(&quot;Hello&quot;)
+
+#Singleton
+cache_s1 = Cache.GetInstance()
+cache_s1.Add(&quot;This is Cache S1&quot;)
+
+#Create another instance to check if this is the same instance as s1
+cache_s2 = Cache.GetInstance()
+
+#Testing the instance
+cache_a.Get()
+#output The content is: Hello
+cache_s1.Get()
+#output The content is: This is Cache S1
+cache_s2.Get()
+#output The content is: This is Cache S1
+</code></pre>
+<p>As you can see here, cache_a is a new instance of the Cache which it is own its own. So it prints &quot;Hello&quot; which is different compare to cache_s1 and cache_s2.</p>
+<p>cache_s1 and cache_s2 are using the same instance, so they both print &quot;thi is cache s1&quot;.</p>
+<h3>Diagram</h3>
+<p>There is no class diagram for Singleton as there is only one class. I have attached a kind of &quot;process&quot; diagram</p>
+<p><img src="https://raw.githubusercontent.com/Hao-Luo/DesignPattern/master/SingletonPattern/SingletonPattern.png" alt="Singleton Pattern"></p>
+<h2>Example Code</h2>
+<p><a href="https://github.com/Hao-Luo/DesignPattern/tree/master/SingletonPattern">Singleton Pattern Example</a></p>
+<h2>Credit</h2>
+<p>&lt;&lt; Head First Design Patterns &gt;&gt;</p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[COMMAND PATTERN - ENCAPSULATES ACTIONS AS OBJECT]]></title>
         <id>https://www.sporule.com/items/command-pattern-encapsulates-actions-as-object</id>
         <link href="https://www.sporule.com/items/command-pattern-encapsulates-actions-as-object"/>
@@ -1782,73 +1878,6 @@ Running - Name: CleanFilesCommand 2 / Command: CleanFilesCommand.
 <p><img src="https://raw.githubusercontent.com/Hao-Luo/DesignPattern/master/CommandPattern/CommandPattern.png" alt="Command Pattern"></p>
 <h2>Example Code:</h2>
 <p><a href="https://github.com/Hao-Luo/DesignPattern/tree/master/CommandPattern">Command Pattern Example</a></p>
-<h2>Credit</h2>
-<p>&lt;&lt; Head First Design Patterns &gt;&gt;</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[SINGLETON PATTERN - GLOBAL ACCESS TO ONLY ONE INSTANCE WHEN IS NEEDED]]></title>
-        <id>https://www.sporule.com/items/singleton-pattern-global-access-to-only-one-instance-when-is-needed</id>
-        <link href="https://www.sporule.com/items/singleton-pattern-global-access-to-only-one-instance-when-is-needed"/>
-        <updated>2019-02-23T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Singleton Pattern is making sure that only one instance of the class can be created. Normally it is to make sure the data integrity. For example if you have two ......]]></summary>
-        <content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/Hao-Luo/DesignPattern/master/SingletonPattern/SingletonPattern.png" alt="coverimage"></p>
-<h2>What is Singleton Pattern</h2>
-<p>Singleton Pattern is making sure that only one instance of the class can be created. Normally it is to make sure the data integrity. For example if you have two connections that connects to the database at the same time, then it may raise the conflict. Another example will be Caching, ideally we should only have 1 Cache for the system unless we have a valid reason to do it.</p>
-<p>Singleton and Global Variable is very differnt, the main difference I found is Singleton is a lazy loading of Global variables. Global variables needs to be initated when starting the application, but Singleton will be initiated in the first usage.</p>
-<h2>Singleton Pattern Implementation</h2>
-<p>Below is a simple example of Cache Implementation.</p>
-<p>Please do not use the below implmenetation for production in python, please use metaclass to implement Singleton in Python.</p>
-<p>The reason that I came up with this implementation is to show an implementation that could apply to other languages.</p>
-<p>We only have 1 class here which is Cache:</p>
-<pre><code class="language-python">class Cache():
-    _instance = None
-    content = &quot;&quot;
-
-    @staticmethod
-    def GetInstance():
-        if Cache._instance is None:
-            Cache._instance = Cache()
-        return Cache._instance
-        
-    def Add(self,content):
-        #Assign Value to the content
-        self.content = content
-        print(self.content + &quot; is added to the cache&quot;)
-    
-    def Get(self):
-        #Print the content
-        print(&quot;The content is: &quot;+self.content)
-</code></pre>
-<p>In Python there is no static class concept, the class itself is kind of an instance, so I have put below test code to run:</p>
-<pre><code class="language-python">from models import Cache
-
-#create normal instance
-cache_a = Cache()
-cache_a.Add(&quot;Hello&quot;)
-
-#Singleton
-cache_s1 = Cache.GetInstance()
-cache_s1.Add(&quot;This is Cache S1&quot;)
-
-#Create another instance to check if this is the same instance as s1
-cache_s2 = Cache.GetInstance()
-
-#Testing the instance
-cache_a.Get()
-#output The content is: Hello
-cache_s1.Get()
-#output The content is: This is Cache S1
-cache_s2.Get()
-#output The content is: This is Cache S1
-</code></pre>
-<p>As you can see here, cache_a is a new instance of the Cache which it is own its own. So it prints &quot;Hello&quot; which is different compare to cache_s1 and cache_s2.</p>
-<p>cache_s1 and cache_s2 are using the same instance, so they both print &quot;thi is cache s1&quot;.</p>
-<h3>Diagram</h3>
-<p>There is no class diagram for Singleton as there is only one class. I have attached a kind of &quot;process&quot; diagram</p>
-<p><img src="https://raw.githubusercontent.com/Hao-Luo/DesignPattern/master/SingletonPattern/SingletonPattern.png" alt="Singleton Pattern"></p>
-<h2>Example Code</h2>
-<p><a href="https://github.com/Hao-Luo/DesignPattern/tree/master/SingletonPattern">Singleton Pattern Example</a></p>
 <h2>Credit</h2>
 <p>&lt;&lt; Head First Design Patterns &gt;&gt;</p>
 ]]></content>
