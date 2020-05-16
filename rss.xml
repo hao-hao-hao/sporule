@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sporule.com/</id>
     <title>Sporule</title>
-    <updated>2020-05-11T10:22:25.955Z</updated>
+    <updated>2020-05-16T09:20:55.280Z</updated>
     <generator>Sporule</generator>
     <author>
         <name>Sporule</name>
@@ -14,6 +14,283 @@
     <logo>https://i.imgur.com/vfh3Une.png</logo>
     <icon>https://i.imgur.com/vfh3Une.png</icon>
     <rights>All rights reserved 2019, Sporule</rights>
+    <entry>
+        <title type="html"><![CDATA[FLOOD FILL ALGORITHM EXPLAINATION]]></title>
+        <id>https://www.sporule.com/items/flood-fill-algorithm</id>
+        <link href="https://www.sporule.com/items/flood-fill-algorithm"/>
+        <updated>2020-05-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Flood fill is a common algorithm question which you can see almost everywhere. This week's challenge in LeetCode is Flood Fill. The explanation from LeetCode:
+
+> An image is represented by ......]]></summary>
+        <content type="html"><![CDATA[<p><img src="https://i.imgur.com/tgtL2C0.png" alt="coverimage"></p>
+<h2>What is Flood fill</h2>
+<p>Flood fill is a common algorithm question which you can see almost everywhere. This week's challenge in LeetCode is Flood Fill.</p>
+<p>The explanation from LeetCode:</p>
+<blockquote>
+<p>An image is represented by a 2-D array of integers, each integer representing the pixel value of the image (from 0 to 65535).</p>
+<p>Given a coordinate (sr, sc) representing the starting pixel (row and column) of the flood fill, and a pixel value newColor, &quot;flood fill&quot; the image.</p>
+<p>To perform a &quot;flood fill&quot;, consider the starting pixel, plus any pixels connected 4-directionally to the starting pixel of the same color as the starting pixel, plus any pixels connected 4-directionally to those pixels (also with the same color as the starting pixel), and so on. Replace the color of all of the aforementioned pixels with the newColor.</p>
+<p>At the end, return the modified image.</p>
+<p>Example:</p>
+<pre><code class="language-python"># Input:
+image = [[1,1,1],[1,1,0],[1,0,1]]
+sr = 1, sc = 1, newColor = 2
+# Output:
+[[2,2,2],[2,2,0],[2,0,1]]
+
+&quot;&quot;&quot;Explanation:
+# From the center of the image (with position (sr, sc) = (1, 1)), all pixels connected 
+by a path of the same color as the starting pixel are colored with the new color.
+Note the bottom corner is not colored 2, because it is not 4-directionally connected
+to the starting pixel.&quot;&quot;&quot;
+</code></pre>
+</blockquote>
+<p><strong>Visualization</strong>:</p>
+<p>It starts from (1,1), the existing color is 1, and the new color is 2.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>The color in (1,1) will become 2</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2 (new)</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Then it will check 4-directionally to see if they are the same color as the old color 1</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1 (check)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1 (check)</td>
+<td>2</td>
+<td>0 (check)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0 (check)</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Some of their color become new color 2 as well because their old color is 1</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2 (new)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2 (new)</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Then it will check all 4-directionally to see if there are any other matches</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 (check)</td>
+<td>2</td>
+<td>1 (check)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1 (check)</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Some of their color become new color 2 as well because their old color is 1</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2 (new)</td>
+<td>2</td>
+<td>2 (new)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2 (new)</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Then they will check again</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>2 (check)</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2 (check)</td>
+<td>2</td>
+<td>0 (check)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0 (check)</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>If the algorithm discovered that none of the color is equal to the old color 1, the algorithm will stop</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2>Python Implementation</h2>
+<pre><code class="language-python">    def floodFill(self, image, sr, sc, newColor):
+        # initiate function, for the purpose of identifying the color of the initial sr,sc
+        selected_color = image[sr][sc]
+        if selected_color != newColor:
+            fill(image,sr,sc,selected_color,newColor)
+        return image
+
+    def fill(image,sr,sc,color,newColor):
+        # recursive function to fill 4-directionally incrementally
+        if sr&lt;len(image) and sr&gt;=0 and sc &lt;len(image[0]) and sc&gt;=0:
+            print(&quot;checking&quot;,sr,sc)
+            if image[sr][sc]==color:
+                image[sr][sc] = newColor
+                print(&quot;updated to new color:&quot;,sr,sc)
+                printImage(image)
+                fill(image,sr+1,sc,color,newColor)
+                fill(image,sr-1,sc,color,newColor)
+                fill(image,sr,sc+1,color,newColor)
+                fill(image,sr,sc-1,color,newColor)
+
+    def printImage(image):
+        # helper method to print out the shape of the function
+        print(&quot;image:&quot;)
+        for x in range(len(image)):
+            print(image[x])
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[HOW TO SECURE YOUR HADOOP DEVELOPMENT ENVIRONMENT TO AVOID HACKERS]]></title>
         <id>https://www.sporule.com/items/how-to-secure-your-hadoop-development-environment-to-avoid-hackers</id>
