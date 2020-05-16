@@ -106,31 +106,6 @@ If the algorithm discovered that none of the color is equal to the old color 1, 
 ## Python Implementation
 
 
-
-```python
-class TV():
-    def __init__(self,name):
-        self._name=name
-        
-    @property
-    def Name(self):
-        return self._name
-    
-    def SwitchOn(self):
-        print(self.Name +" is on.")
-
-class RemoteControl():
-    def __init__(self,tv):
-        self._tv = tv
-    
-    def SwitchOnTV(self):
-        self._tv.On()
-```
-
-You can see that the TV has a function SwitchOn(), but the Remote Control is calling the function On().
-
-Now we create a new model that add the function On() in TV, the On() function will call the TV's SwtichOn() function.
-
 ```python
     def floodFill(self, image, sr, sc, newColor):
         # initiate function, for the purpose of identifying the color of the initial sr,sc
