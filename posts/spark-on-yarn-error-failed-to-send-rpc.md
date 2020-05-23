@@ -49,7 +49,7 @@ It looks obvious that the job containers were killed because the virtual memory 
 
 I found out from official document that there is a property call **yarn.nodemanager.vmem-pmem-ratio** that controls the ratio between physical memory and virtual memory. This configuration is under **/etc/hadoop/yarn-site.xml**.
 
-The default value is 2.1 so I have changed it to 10 because my Azure machine has only 8GB of RAM.
+You can also change the config **yarn.nodemanager.vmem-check-enabled** to false so it won't raise any errors.
 
-I believe the side affect is the execution of job will be slower because it is using virtual memory, which sounds like the hard disks rather than the memory.
+I think the side affect is the execution of job will be slower because it is using virtual memory, which sounds like the hard disks rather than the memory.
 
