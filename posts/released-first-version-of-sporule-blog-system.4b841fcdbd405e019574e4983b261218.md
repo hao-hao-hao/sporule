@@ -3,7 +3,6 @@ title: "Release the first version of Sporule Blogging System"
 author: "Sporule"
 date: "2019-10-05"
 categories: "code"
-pinned: 1
 tags: "npm,javascript,es6,markdown,sporule,blog"
 coverimage: "https://i.imgur.com/CRKGEJk.png"
 ---
