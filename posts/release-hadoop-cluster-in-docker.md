@@ -3,7 +3,6 @@ title: "Release Hadoop Cluster in Docker"
 author: "Sporule"
 date: "2020-04-18"
 categories: "big data"
-pinned: 1
 tags: "hadoop,hive,spark,airflow"
 coverImage: "https://mapr.com/products/apache-hadoop/assets/hadoop-logo.png"
 ---
