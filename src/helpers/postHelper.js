@@ -3,12 +3,16 @@ import * as Utility from "./utility";
 
 export const getPinnedPosts = (posts) => {
     let tempPosts = { ...posts };
+    console.log("all posts");
+    console.log(tempPosts)
     tempPosts = sortPost(tempPosts);
     let pinnedPosts = tempPosts.items.filter(post => post.metas.pinned)
     if (pinnedPosts.length < 1) {
         pinnedPosts = tempPosts.items.slice(0, 10);
     }
     tempPosts.items = pinnedPosts;
+    console.log("pinnedPosts");
+    console.log(pinnedPosts)
     return tempPosts;
 }
 
