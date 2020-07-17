@@ -4,10 +4,7 @@ import * as Utility from "./utility";
 export const getPinnedPosts = (posts) => {
     let tempPosts = { ...posts };
     tempPosts = sortPost(tempPosts);
-    let pinnedPosts = tempPosts.items.filter(post => post.metas.pinned != undefined)
-    if (pinnedPosts.length < 1) {
-        pinnedPosts = tempPosts.items.slice(0, 10);
-    }
+    let pinnedPosts = tempPosts.items.filter(post => post.metas.pinned)
     tempPosts.items = pinnedPosts;
     return tempPosts;
 }
