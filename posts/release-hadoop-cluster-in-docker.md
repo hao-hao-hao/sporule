@@ -4,7 +4,7 @@ author: "Sporule"
 date: "2020-04-18"
 categories: "big data"
 tags: "hadoop,hive,spark,airflow"
-coverImage: "https://mapr.com/products/apache-hadoop/assets/hadoop-logo.png"
+coverImage: "https://miro.medium.com/max/2760/1*kPKoXmHBDmGthbah-0549A.png"
 ---
 
 
