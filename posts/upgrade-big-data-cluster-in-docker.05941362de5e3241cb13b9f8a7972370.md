@@ -7,25 +7,37 @@ tags: "hadoop,hive,spark,airflow"
 coverImage: "https://miro.medium.com/max/2760/1*kPKoXmHBDmGthbah-0549A.png"
 ---
 
-After few months of using the cluster as development environment, I have made some updates to finetune the performance.
-
-# Big Data Cluster
-
-This is the Hadoop image based on the [BDE's Hadoop Base](https://github.com/big-data-europe/docker-hadoop) and its relevant forks.
+After few months of using the [cluster as development environment](release-hadoop-cluster-in-docker), I have made a big upgrade to finetune the performance.
 
 This docker image is for development purpose, you should not use it for production without updating the configuration. I have modified some images and added some new features. 
 You may find more information on [Sporule Blog](https://www.sporule.com) .
 
+This project is in github : [sporule/big-data-cluster](https://github.com/sporule/big-data-cluster).
+You can also find it from docker hub: [sporule/big-data-cluster](https://hub.docker.com/repository/docker/sporule/big-data-cluster/general).
+
 ## Changes
 
-## 30/09/2020
+### 02/10/2020
+
+- Upgraded to Debian 10
+- Upgraded to OpenJDK 11
+- Upgraded to Python 3.7.3
+- Upgraded to Hadoop 3.3.0
+- Upgraded to Hive 3.1.2
+- Upgrade to Spark 3.0.1
+
+### 01/10/2020
+
+- Replaced Jupyter Lab with Jupyter Hub, you can login by using the linux credential in hadoop.env.
+
+### 30/09/2020
 
 - Updated the configuration file to tune the performance
 - Added two environment variables relate to users in hadoop.env. You can use that to create users in dev-node with root and SSH login permission.
 - Move Airflow to Master with landing-folder shared in dev nodes.
 - Changed the default ports
 
-## 12/08/2020
+### 12/08/2020
 
 - Added Apache Livy with default port 8998 to dev-node
 - Reduce the dev-node amount from 4 to 2
@@ -79,3 +91,22 @@ conf = SparkConf().setAppName('Ingestion')
 spark = SparkSession.builder.config(conf=conf).getOrCreate() # Spark session will be created in the kernel after this line
 
 ```
+
+## Quick Start Guide
+
+### Clone this Repo
+
+```bash
+git clone https://github.com/sporule/big-data-cluster
+cd big-data-cluster/
+```
+
+### Run the whole cluster
+
+```bash
+docker-compose up -d
+```
+
+### Run Individual Contaier
+
+You can run individual container by using Docker command, please find more information and tutorial on Docker website. Please remember to pass environment variables to the Docker command. You can find the relevant environment variables in the *docker-compose.yml* file.

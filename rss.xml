@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sporule.com/</id>
     <title>Sporule</title>
-    <updated>2020-09-30T22:45:53.782Z</updated>
+    <updated>2020-10-02T20:39:35.149Z</updated>
     <generator>Sporule</generator>
     <author>
         <name>Sporule</name>
@@ -14,6 +14,104 @@
     <logo>https://i.imgur.com/vfh3Une.png</logo>
     <icon>https://i.imgur.com/vfh3Une.png</icon>
     <rights>All rights reserved 2019, Sporule</rights>
+    <entry>
+        <title type="html"><![CDATA[UPDATE BIG DATA CLUSTER CLUSTER IN DOCKER]]></title>
+        <id>https://www.sporule.com/items/upgrade-big-data-cluster-in-docker</id>
+        <link href="https://www.sporule.com/items/upgrade-big-data-cluster-in-docker"/>
+        <updated>2020-10-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[After few months of using the cluster as development environment(release-hadoop-cluster-in-docker), I have made a big upgrade to finetune the performance.
+
+This docker image is for development purpose, you should not use ......]]></summary>
+        <content type="html"><![CDATA[<p><img src="https://miro.medium.com/max/2760/1*kPKoXmHBDmGthbah-0549A.png" alt="coverimage"></p>
+<p>After few months of using the <a href="release-hadoop-cluster-in-docker">cluster as development environment</a>, I have made a big upgrade to finetune the performance.</p>
+<p>This docker image is for development purpose, you should not use it for production without updating the configuration. I have modified some images and added some new features.
+You may find more information on <a href="https://www.sporule.com">Sporule Blog</a> .</p>
+<p>This project is in github : <a href="https://github.com/sporule/big-data-cluster">sporule/big-data-cluster</a>.
+You can also find it from docker hub: <a href="https://hub.docker.com/repository/docker/sporule/big-data-cluster/general">sporule/big-data-cluster</a>.</p>
+<h2>Changes</h2>
+<h3>02/10/2020</h3>
+<ul>
+<li>Upgraded to Debian 10</li>
+<li>Upgraded to OpenJDK 11</li>
+<li>Upgraded to Python 3.7.3</li>
+<li>Upgraded to Hadoop 3.3.0</li>
+<li>Upgraded to Hive 3.1.2</li>
+<li>Upgrade to Spark 3.0.1</li>
+</ul>
+<h3>01/10/2020</h3>
+<ul>
+<li>Replaced Jupyter Lab with Jupyter Hub, you can login by using the linux credential in hadoop.env.</li>
+</ul>
+<h3>30/09/2020</h3>
+<ul>
+<li>Updated the configuration file to tune the performance</li>
+<li>Added two environment variables relate to users in hadoop.env. You can use that to create users in dev-node with root and SSH login permission.</li>
+<li>Move Airflow to Master with landing-folder shared in dev nodes.</li>
+<li>Changed the default ports</li>
+</ul>
+<h3>12/08/2020</h3>
+<ul>
+<li>Added Apache Livy with default port 8998 to dev-node</li>
+<li>Reduce the dev-node amount from 4 to 2</li>
+</ul>
+<h3>04/08/2020</h3>
+<ul>
+<li>Upgraded Spark to 2.4.6 as the old version raised build error due to the repo issue</li>
+<li>Added NIFI in default port 8081</li>
+<li>Moved Airflow port to 8082</li>
+</ul>
+<h3>02/07/2020</h3>
+<ul>
+<li>Changed Spark version to 2.4.5 as the old version raised build error due to the repo issue.</li>
+<li>Changed the hadoop environment setting and cluster setting to align with machine with 32GB RAM.</li>
+<li>Added Jupyter Lab with PySpark Support in dev nodes,you can now enable it by passing environment variable <strong>JUPYTER=1</strong>.  The default port 10110 is mapped to jupyter lab port 8080. The default token is sporule, you can change that in hadoop.env. Run findspark first before creating the spark context, examples below:</li>
+</ul>
+<pre><code class="language-bash"># In the docker-compose
+
+  dev-node01:
+    image: sporule/big-data-cluster:dev-node
+    mem_limit: 480m
+    container_name: dev-node01
+    restart: always 
+    ports:
+      - &quot;10022:22&quot;
+      - &quot;10110:8080&quot;
+    volumes:
+      - dev-node01_root:/root/
+    environment:
+        - AIRFLOW=0
+        - JUPYTER=1
+    env_file:
+      - ./hadoop.env
+    networks:
+      - cluster
+
+</code></pre>
+<pre><code class="language-python">
+# In the Jupyter Notebook
+
+import findspark
+findspark.init()
+
+from pyspark import SparkContext, SparkConf
+from pyspark.sql import SparkSession
+
+conf = SparkConf().setAppName('Ingestion')
+spark = SparkSession.builder.config(conf=conf).getOrCreate() # Spark session will be created in the kernel after this line
+
+</code></pre>
+<h2>Quick Start Guide</h2>
+<h3>Clone this Repo</h3>
+<pre><code class="language-bash">git clone https://github.com/sporule/big-data-cluster
+cd big-data-cluster/
+</code></pre>
+<h3>Run the whole cluster</h3>
+<pre><code class="language-bash">docker-compose up -d
+</code></pre>
+<h3>Run Individual Contaier</h3>
+<p>You can run individual container by using Docker command, please find more information and tutorial on Docker website. Please remember to pass environment variables to the Docker command. You can find the relevant environment variables in the <em>docker-compose.yml</em> file.</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[BASIC SORTING ALGORITHM]]></title>
         <id>https://www.sporule.com/items/basic-sorting-algorithm</id>
