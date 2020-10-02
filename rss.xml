@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sporule.com/</id>
     <title>Sporule</title>
-    <updated>2020-10-02T20:41:57.006Z</updated>
+    <updated>2020-10-02T20:42:11.096Z</updated>
     <generator>Sporule</generator>
     <author>
         <name>Sporule</name>
@@ -15,9 +15,9 @@
     <icon>https://i.imgur.com/vfh3Une.png</icon>
     <rights>All rights reserved 2019, Sporule</rights>
     <entry>
-        <title type="html"><![CDATA[UPGRADE BIG DATA CLUSTER CLUSTER TO LATEST VERSION]]></title>
-        <id>https://www.sporule.com/items/upgrade-big-data-cluster-in-docker</id>
-        <link href="https://www.sporule.com/items/upgrade-big-data-cluster-in-docker"/>
+        <title type="html"><![CDATA[UPGRADED BIG DATA CLUSTER CLUSTER TO LATEST VERSION]]></title>
+        <id>https://www.sporule.com/items/upgraded-big-data-cluster-in-docker</id>
+        <link href="https://www.sporule.com/items/upgraded-big-data-cluster-in-docker"/>
         <updated>2020-10-01T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[After few months of using the cluster as development environment(release-hadoop-cluster-in-docker), I have made a big upgrade to the latest version.
 

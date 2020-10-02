@@ -1,5 +1,5 @@
 ---
-title: "Upgrade Big Data Cluster Cluster to Latest Version"
+title: "Upgraded Big Data Cluster Cluster to Latest Version"
 author: "Sporule"
 date: "2020-10-01"
 categories: "big data"

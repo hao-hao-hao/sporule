@@ -6,7 +6,7 @@ https://www.sporule.com/categories/code
 https://www.sporule.com/categories/machine%20learning
 https://www.sporule.com/categories/notes
 https://www.sporule.com/categories/design%20pattern
-https://www.sporule.com/items/upgrade-big-data-cluster-in-docker
+https://www.sporule.com/items/upgraded-big-data-cluster-in-docker
 https://www.sporule.com/items/basic-sorting-algorithm
 https://www.sporule.com/items/flood-fill-algorithm
 https://www.sporule.com/items/how-to-secure-your-hadoop-development-environment-to-avoid-hackers
