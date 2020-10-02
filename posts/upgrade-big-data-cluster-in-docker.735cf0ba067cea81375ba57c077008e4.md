@@ -1,5 +1,5 @@
 ---
-title: "Update Big Data Cluster Cluster in Docker"
+title: "Upgrade Big Data Cluster Cluster to Latest Version"
 author: "Sporule"
 date: "2020-10-01"
 categories: "big data"
@@ -7,7 +7,7 @@ tags: "hadoop,hive,spark,airflow"
 coverImage: "https://miro.medium.com/max/2760/1*kPKoXmHBDmGthbah-0549A.png"
 ---
 
-After few months of using the [cluster as development environment](release-hadoop-cluster-in-docker), I have made a big upgrade to finetune the performance.
+After few months of using the [cluster as development environment](release-hadoop-cluster-in-docker), I have made a big upgrade to the latest version.
 
 This docker image is for development purpose, you should not use it for production without updating the configuration. I have modified some images and added some new features. 
 You may find more information on [Sporule Blog](https://www.sporule.com) .
