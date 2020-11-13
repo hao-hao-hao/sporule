@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.sporule.com/</id>
     <title>Sporule</title>
-    <updated>2020-10-12T10:28:33.974Z</updated>
+    <updated>2020-11-13T10:44:46.018Z</updated>
     <generator>Sporule</generator>
     <author>
         <name>Sporule</name>
@@ -14,6 +14,71 @@
     <logo>https://i.imgur.com/vfh3Une.png</logo>
     <icon>https://i.imgur.com/vfh3Une.png</icon>
     <rights>All rights reserved 2019, Sporule</rights>
+    <entry>
+        <title type="html"><![CDATA[PYSPARK STACKOVERFLOWERROR - UNION MULTIPLE DATAFRAMES ]]></title>
+        <id>https://www.sporule.com/items/pyspark-stackoverflowerror-union-multiple-dataframes</id>
+        <link href="https://www.sporule.com/items/pyspark-stackoverflowerror-union-multiple-dataframes"/>
+        <updated>2020-11-13T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[I was generating some test data from existing dataset by using pyspark. The approach I used was:
+
+1. Loading existing data to a dataframe
+2. Do some random data manupulation, such as ......]]></summary>
+        <content type="html"><![CDATA[<p><img src="https://www.scnsoft.com/blog-pictures/business-intelligence/big-data-quality-01_1.png" alt="coverimage"></p>
+<h2>Problem</h2>
+<p>I was generating some test data from existing dataset by using pyspark. The approach I used was:</p>
+<ol>
+<li>Loading existing data to a dataframe</li>
+<li>Do some random data manupulation, such as changing timestamp to random timestamp.</li>
+<li>Repeat the 2nd process 1000 times</li>
+<li>Use Union to join the dataframes together</li>
+</ol>
+<p>This is the code:</p>
+<pre><code class="language-python">
+source_df = spark.sql(&quot;select * from test.master&quot;)
+dfs = []
+for x in range(0,1000):
+  dfs.append(source_df.withColumn(&quot;timestamp&quot;,F.current_timestamp()-F.expr('INTERVAL '+str(random.randrange(1,800000))+' MINUTES')))
+
+df = reduce(DataFrame.union, dfs)
+df.write.mode('append').format(&quot;parquet&quot;).partitionBy(&quot;reporting_date&quot;).option(&quot;path&quot;, outputUri).save()
+
+</code></pre>
+<p>As a result, I received the Java StackOverflowError below:</p>
+<pre><code class="language-bash">
+Traceback (most recent call last):
+  File &quot;/tmp/3513e285873245068570fabb8e0e2898/generate-data.py&quot;, line 187, in &lt;module&gt;
+    df.write.mode('append').format(&quot;parquet&quot;).partitionBy(&quot;reporting_date&quot;).option(&quot;path&quot;, outputUri).save()
+  File &quot;/usr/lib/spark/python/lib/pyspark.zip/pyspark/sql/readwriter.py&quot;, line 737, in save
+  File &quot;/usr/lib/spark/python/lib/py4j-0.10.7-src.zip/py4j/java_gateway.py&quot;, line 1257, in __call__
+  File &quot;/usr/lib/spark/python/lib/pyspark.zip/pyspark/sql/utils.py&quot;, line 63, in deco
+  File &quot;/usr/lib/spark/python/lib/py4j-0.10.7-src.zip/py4j/protocol.py&quot;, line 328, in get_return_value
+py4j.protocol.Py4JJavaError: An error occurred while calling o8683.save.
+: java.lang.StackOverflowError
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:488)
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:489)
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:489)
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:489)
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:489)
+
+</code></pre>
+<h2>Solution</h2>
+<p>This error message is a very old school error message as I haven't seen it for long long time, so the first feeling for me is that is my &quot;childhood&quot; !
+I went into the pyspark execution plan to understand what happened by using df.explain(), it prints out all the unions operations are nested with each other.
+The operation of going to each level of the unions is probably the wrong approach, I was expecting spark can handle this automatically but spark didn't.
+The solution is straightforward, we can use RDD to make all the unions to the same level.</p>
+<p>The Solution:</p>
+<pre><code class="language-python">
+source_df = spark.sql(&quot;select * from test.master&quot;)
+dfs = []
+for x in range(0,1000):
+  dfs.append(source_df.withColumn(&quot;timestamp&quot;,F.current_timestamp()-F.expr('INTERVAL '+str(random.randrange(1,800000))+' MINUTES')))
+
+df = spark.sparkContext.union([df.rdd for df in dfs]).toDF() # Union the RDDs then convert back to df
+df.write.mode('append').format(&quot;parquet&quot;).partitionBy(&quot;reporting_date&quot;).option(&quot;path&quot;, outputUri).save()
+
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[UPGRADED BIG DATA CLUSTER CLUSTER TO LATEST VERSION]]></title>
         <id>https://www.sporule.com/items/upgraded-big-data-cluster-in-docker</id>
@@ -1939,36 +2004,6 @@ It share the similar concept as React, which uses ......]]></summary>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[EXOPLAYER SOURCE ERROR ON ANDROID 8 AND ABOVE]]></title>
-        <id>https://www.sporule.com/items/exoplayer-source-error-on-android-8-and-above</id>
-        <link href="https://www.sporule.com/items/exoplayer-source-error-on-android-8-and-above"/>
-        <updated>2019-07-12T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[EXOPlayer is an open source video player for mobile.
-Yesterday I was trying to use EXOPlayer in my Pixel but it couldn't stream video (m3u8) by using EXOPlayer.
-
-The error message is ......]]></summary>
-        <content type="html"><![CDATA[<p><img src="https://miro.medium.com/max/3092/1*oxK1gF5zFP9z9_9qFDOKlQ.png" alt="coverimage"></p>
-<h2>The Problem</h2>
-<p>EXOPlayer is  an open source video player for mobile.
-Yesterday I was trying to use EXOPlayer in my Pixel but it couldn't stream video (m3u8) by using EXOPlayer.</p>
-<p>The error message is not very clear: &quot;Source Error, can't connect to http://xxxxxxxx&quot;</p>
-<p>I was very confused as I am pretty sure the url I passed in is working OK.</p>
-<h2>The Cause</h2>
-<p>I spent 20 minutes trying to resolve the issue, finally I found a small hidden error message in the console says &quot;Cleartext HTTP traffic not permitted&quot;.</p>
-<p>The new error message is very clear, the solution is simply add android:usesCleartextTraffic=&quot;true&quot; into the mainfest:</p>
-<pre><code class="language-javascript"> &lt;application
-        android:allowBackup=&quot;true&quot;
-        android:icon=&quot;@mipmap/ic_launcher&quot;
-        android:label=&quot;xxxxxx&quot;
-        android:supportsRtl=&quot;true&quot;
-        android:theme=&quot;@style/AppTheme&quot;
-        android:usesCleartextTraffic=&quot;true&quot;&gt;
-</code></pre>
-<p>Works perfectly fine after adding the usesClearText, you will need to add this for Android 8.0 and above.</p>
-<p>Please note that you should not use clear text traffic if the informatin you are trying to send is confidential.</p>
-]]></content>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[MODULE PARSE FAILED UNEXPECTED CHARACTER'' ERROR WHEN USING WEBPACK FOR FONTAWSOME FROM ONSENUI]]></title>
         <id>https://www.sporule.com/items/module-parse-failed-unexpected-character-error-when-using-webpack-for-fontawsome-from-onsenui</id>
         <link href="https://www.sporule.com/items/module-parse-failed-unexpected-character-error-when-using-webpack-for-fontawsome-from-onsenui"/>
@@ -1999,6 +2034,36 @@ However the woff file name is actually fontawesome-webfont.woff?v=4.7.0, it cont
 test: /.(woff|woff2|eot|ttf|svg)(?.*$|$)/,
 loader: 'file?name=assets/[name].[ext]'
 }</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[EXOPLAYER SOURCE ERROR ON ANDROID 8 AND ABOVE]]></title>
+        <id>https://www.sporule.com/items/exoplayer-source-error-on-android-8-and-above</id>
+        <link href="https://www.sporule.com/items/exoplayer-source-error-on-android-8-and-above"/>
+        <updated>2019-07-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[EXOPlayer is an open source video player for mobile.
+Yesterday I was trying to use EXOPlayer in my Pixel but it couldn't stream video (m3u8) by using EXOPlayer.
+
+The error message is ......]]></summary>
+        <content type="html"><![CDATA[<p><img src="https://miro.medium.com/max/3092/1*oxK1gF5zFP9z9_9qFDOKlQ.png" alt="coverimage"></p>
+<h2>The Problem</h2>
+<p>EXOPlayer is  an open source video player for mobile.
+Yesterday I was trying to use EXOPlayer in my Pixel but it couldn't stream video (m3u8) by using EXOPlayer.</p>
+<p>The error message is not very clear: &quot;Source Error, can't connect to http://xxxxxxxx&quot;</p>
+<p>I was very confused as I am pretty sure the url I passed in is working OK.</p>
+<h2>The Cause</h2>
+<p>I spent 20 minutes trying to resolve the issue, finally I found a small hidden error message in the console says &quot;Cleartext HTTP traffic not permitted&quot;.</p>
+<p>The new error message is very clear, the solution is simply add android:usesCleartextTraffic=&quot;true&quot; into the mainfest:</p>
+<pre><code class="language-javascript"> &lt;application
+        android:allowBackup=&quot;true&quot;
+        android:icon=&quot;@mipmap/ic_launcher&quot;
+        android:label=&quot;xxxxxx&quot;
+        android:supportsRtl=&quot;true&quot;
+        android:theme=&quot;@style/AppTheme&quot;
+        android:usesCleartextTraffic=&quot;true&quot;&gt;
+</code></pre>
+<p>Works perfectly fine after adding the usesClearText, you will need to add this for Android 8.0 and above.</p>
+<p>Please note that you should not use clear text traffic if the informatin you are trying to send is confidential.</p>
 ]]></content>
     </entry>
     <entry>
